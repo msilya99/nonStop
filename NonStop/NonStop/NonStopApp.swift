@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import UIKit
 
 @main
 struct NonStopApp: App {
     let persistenceController = PersistenceController.shared
+    @StateObject var initialTimerDate = NSInitialTimer()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            CoreDataExample()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NSTimerView()
+                .environmentObject(initialTimerDate)
         }
     }
 }
