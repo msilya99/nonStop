@@ -32,10 +32,10 @@ struct DateTimeFormat {
     static let baseShortUserViewFormat: String = "dd.MM.yy"
     /// "HH:mm"
     static let timeUserViewFormat: String = "HH:mm"
-    /// "+3"
-    static let parseTimeZone: String = "+3"
     /// "UTC"
     static let defaultTimeZone: String = "UTC"
     /// yyyy
     static let yearFormat: String = "yyyy"
+
+    static let fullTime: String = "HH:mm:ss"
 }

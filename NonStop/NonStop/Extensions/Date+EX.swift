@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 extension Date {
 
@@ -44,7 +45,7 @@ extension Date {
 
     func toString(format: String = DateTimeFormat.baseUserViewFormat,
                   timeZoneAbbreviation: String? = nil,
-                  withCurrentLocale: Bool = false,
+                  withCurrentLocale: Bool = true,
                   truncateLeadingZero: Bool = false) -> String {
         let formatter = DateFormatter()
         let timeZone = TimeZone(abbreviation: timeZoneAbbreviation ?? "") ?? SYS.timeZone
@@ -61,5 +62,19 @@ extension Date {
         }
 
         return resultString
+    }
+
+    static func rangeFormat(start: Date, end: Date, format: String) -> String {
+        return "\(start.string(withFormat: format))-\(end.string(withFormat: format))"
+    }
+
+    func string(withFormat format: String = DateTimeFormat.dayMonthTimeLongFormat) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
     }
 }

@@ -23,7 +23,7 @@ class NSSystem {
     // MARK: - init
 
     init() {
-        self.timeZone = Calendar.current.timeZone
+        self.timeZone = TimeZone(abbreviation: DateTimeFormat.defaultTimeZone) ?? Calendar.current.timeZone
         self.calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         calendar.timeZone = self.timeZone
     }
