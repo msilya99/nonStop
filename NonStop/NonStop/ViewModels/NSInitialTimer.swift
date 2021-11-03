@@ -12,7 +12,12 @@ class NSInitialTimer: ObservableObject {
 
     // MARK: - published variables
 
-    @Published var timeRemaining: TimeInterval = 0
+    @Published var timeRemain: TimeInterval = 0 {
+        didSet {
+            updateTimeRemainingPersentageIfNeeded()
+        }
+    }
+    @Published var timeLeftPersentage: Double = 0
 
     // MARK: - variables
 
@@ -20,8 +25,8 @@ class NSInitialTimer: ObservableObject {
     private var isTimerStarted: Bool = false
 
     private let currentDate = Date()
-    var startDate: Date { return currentDate.adding(.minute, value: -30) }
-    var endDate: Date { return currentDate.adding(.minute, value: 30) }
+    var startDate: Date { return currentDate.adding(.minute, value: -1) }
+    var endDate: Date { return currentDate.adding(.minute, value: 1) }
 
     // MARK: - timer actions
 
@@ -29,18 +34,18 @@ class NSInitialTimer: ObservableObject {
         guard !isTimerStarted else { return }
         isTimerStarted = true
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            self.timeRemaining = self.endDate - Date()
+            self.timeRemain = self.endDate - Date()
+            if self.timeRemain <= 0 {
+                self.stopTimer()
+            }
         }
     }
 
     func stopTimer() {
         timer.invalidate()
-    }
-
-    func stopTimerAndReset() {
-        timer.invalidate()
         isTimerStarted = false
-        timeRemaining = 0
+        timeRemain = 0
+        timeLeftPersentage = 0
     }
 
     // MARK: - getters
@@ -51,5 +56,18 @@ class NSInitialTimer: ObservableObject {
 
     func getEndDateString() -> String {
         return endDate.toString(format: DateTimeFormat.timeUserViewFormat)
+    }
+
+    private func updateTimeRemainingPersentageIfNeeded() {
+        guard timeLeftPersentage < 100 else { return }
+        let intervalFromStartToEnd = endDate - startDate
+        let newTimeRemaingPersentage = (timeRemain / intervalFromStartToEnd) * 100
+
+        if timeLeftPersentage == 0 {
+            timeLeftPersentage = 100 - newTimeRemaingPersentage
+        } else if newTimeRemaingPersentage != 0,
+                  timeLeftPersentage - newTimeRemaingPersentage >= 1 {
+            timeLeftPersentage = 100 - newTimeRemaingPersentage
+        }
     }
 }

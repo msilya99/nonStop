@@ -17,7 +17,7 @@ struct NonStopApp: App {
         WindowGroup {
 //            CoreDataExample()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-            NSTimerView()
+            NSMainTabsView()
                 .environmentObject(initialTimerDate)
         }
     }

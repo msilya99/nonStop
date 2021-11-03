@@ -11,11 +11,11 @@ struct NSTimerView: View {
     @EnvironmentObject var initialTimerDate: NSInitialTimer
     
     var body: some View {
-        Text("Timer started at \(initialTimerDate.getStartDateString()) \n Timer will end at \(initialTimerDate.getEndDateString()) \n Time till end: \(Date(timeIntervalSinceReferenceDate: initialTimerDate.timeRemaining).toString(format: DateTimeFormat.fullTime))")
+        Text("Timer started at \(initialTimerDate.getStartDateString()) \n Timer will end at \(initialTimerDate.getEndDateString()) \n Time till end: \(Date(timeIntervalSinceReferenceDate: initialTimerDate.timeRemain).toString(format: DateTimeFormat.fullTime))")
             .multilineTextAlignment(.center)
             .padding()
             .foregroundColor(.white)
-            .background(.black)
+            .background(Color.black)
             .onAppear {
                 initialTimerDate.startTimer()
             }
