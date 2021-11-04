@@ -7,6 +7,7 @@
 
 import Combine
 import UIKit
+import SwiftUI
 
 class NSInitialTimer: ObservableObject {
 
@@ -25,8 +26,8 @@ class NSInitialTimer: ObservableObject {
     private var isTimerStarted: Bool = false
 
     private let currentDate = Date()
-    var startDate: Date { return currentDate.adding(.minute, value: -1) }
-    var endDate: Date { return currentDate.adding(.minute, value: 1) }
+    var startDate: Date { return currentDate.adding(.second, value: -10) }
+    var endDate: Date { return currentDate.adding(.second, value: 50) }
 
     // MARK: - timer actions
 
@@ -34,7 +35,9 @@ class NSInitialTimer: ObservableObject {
         guard !isTimerStarted else { return }
         isTimerStarted = true
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            self.timeRemain = self.endDate - Date()
+            let now = Date()
+            guard now > self.startDate else { return }
+            self.timeRemain = self.endDate - now
             if self.timeRemain <= 0 {
                 self.stopTimer()
             }
@@ -58,16 +61,17 @@ class NSInitialTimer: ObservableObject {
         return endDate.toString(format: DateTimeFormat.timeUserViewFormat)
     }
 
+    func getTimeRemainString() -> String {
+        return Date(timeIntervalSinceReferenceDate: timeRemain)
+            .toString(format: DateTimeFormat.fullTime)
+    }
+
+    // MARK: - actions
+
     private func updateTimeRemainingPersentageIfNeeded() {
         guard timeLeftPersentage < 100 else { return }
         let intervalFromStartToEnd = endDate - startDate
         let newTimeRemaingPersentage = (timeRemain / intervalFromStartToEnd) * 100
-
-        if timeLeftPersentage == 0 {
-            timeLeftPersentage = 100 - newTimeRemaingPersentage
-        } else if newTimeRemaingPersentage != 0,
-                  timeLeftPersentage - newTimeRemaingPersentage >= 1 {
-            timeLeftPersentage = 100 - newTimeRemaingPersentage
-        }
+        timeLeftPersentage = 100 - newTimeRemaingPersentage
     }
 }

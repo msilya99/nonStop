@@ -25,6 +25,7 @@
 		99BAC1D02731EFEF00536F7B /* DateTimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1CF2731EFEF00536F7B /* DateTimeFormat.swift */; };
 		99BAC1D22731F0D100536F7B /* AppLang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1D12731F0D100536F7B /* AppLang.swift */; };
 		99BAC1D52731F16B00536F7B /* NSSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1D42731F16B00536F7B /* NSSystem.swift */; };
+		99E8FA4E273496B400D8FCA0 /* NSStandartFancyAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8FA4D273496B400D8FCA0 /* NSStandartFancyAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		99BAC1CF2731EFEF00536F7B /* DateTimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeFormat.swift; sourceTree = "<group>"; };
 		99BAC1D12731F0D100536F7B /* AppLang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLang.swift; sourceTree = "<group>"; };
 		99BAC1D42731F16B00536F7B /* NSSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSystem.swift; sourceTree = "<group>"; };
+		99E8FA4D273496B400D8FCA0 /* NSStandartFancyAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStandartFancyAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				990DB564273339CF00B62902 /* NSStandartCircleAnimation.swift */,
 				990DB566273339EF00B62902 /* NSWatterCircleAnimation.swift */,
 				990DB56827333A3000B62902 /* NSStandartImprovedAnimation.swift */,
+				99E8FA4D273496B400D8FCA0 /* NSStandartFancyAnimation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */,
 				990DB5632733380800B62902 /* NSAnimationsViewList.swift in Sources */,
 				99BAC1CD2731EE0F00536F7B /* NSTimerView.swift in Sources */,
+				99E8FA4E273496B400D8FCA0 /* NSStandartFancyAnimation.swift in Sources */,
 				990DB567273339EF00B62902 /* NSWatterCircleAnimation.swift in Sources */,
 				99BAC1D02731EFEF00536F7B /* DateTimeFormat.swift in Sources */,
 				99BAC1C82731EBD900536F7B /* NSInitialTimer.swift in Sources */,

@@ -15,11 +15,11 @@ struct NSAnimationsViewList: View {
                     NavigationLink(destination: NSStandartCircleAnimation()) {
                         Text("StandartCircleAnimation")
                     }
+                    NavigationLink(destination: NSStandartFancyAnimation()) {
+                        Text("StandartFancyCircleAnimation")
+                    }
                     NavigationLink(destination: NSWatterCircleAnimation()) {
                         Text("WatterCircleAnimation")
-                    }
-                    NavigationLink(destination: NSStandartImprovedAnimation()) {
-                        Text("StandartImprovedAnimation")
                     }
                 }
             }.navigationTitle("Animations")

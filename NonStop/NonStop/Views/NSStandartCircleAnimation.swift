@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct NSStandartCircleAnimation: View {
-    @EnvironmentObject var initialTimerDate: NSInitialTimer
+    @EnvironmentObject var initialTimer: NSInitialTimer
 
     var body: some View {
-        ProgressView(value: initialTimerDate.timeLeftPersentage, total: 100)
+        ProgressView(value: initialTimer.timeLeftPersentage, total: 100)
             .progressViewStyle(NSGaugeProgressStyle())
             .frame(width: 200, height: 200)
             .contentShape(Rectangle())
             .onAppear {
-                initialTimerDate.startTimer()
+                initialTimer.startTimer()
             }
             .onDisappear {
-                initialTimerDate.stopTimer()
+                initialTimer.stopTimer()
             }
     }
 }
