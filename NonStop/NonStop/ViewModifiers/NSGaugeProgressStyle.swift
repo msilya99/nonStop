@@ -13,7 +13,8 @@ struct NSGaugeProgressStyle: ProgressViewStyle {
 
     @ObservedObject var timer: NSInitialTimer
 
-    var strokeColor = Color.red
+    var foregroundColor = Color.red
+    var gradientColor = Gradient(colors: [.red, .pink])
     var strokeWidth = 20.0
     var rotation: Angle = Angle(degrees: 270)
 
@@ -26,12 +27,12 @@ struct NSGaugeProgressStyle: ProgressViewStyle {
                 Circle()
                     .stroke(lineWidth: self.strokeWidth)
                     .opacity(0.3)
-                    .foregroundColor(self.strokeColor)
+                    .foregroundColor(self.foregroundColor)
             }
 
             Circle()
                 .trim(from: 0, to: CGFloat(fractionCompleted))
-                .stroke(strokeColor,
+                .stroke(getGradientForFractional(fractionCompleted: fractionCompleted),
                         style: StrokeStyle(lineWidth:
                                             CGFloat(strokeWidth),
                                            lineCap: .round,
@@ -39,5 +40,12 @@ struct NSGaugeProgressStyle: ProgressViewStyle {
                 .rotationEffect(rotation)
                 .animation(.easeInOut)
         }
+    }
+
+    func getGradientForFractional(fractionCompleted: Double) -> AngularGradient {
+        return AngularGradient(gradient: gradientColor,
+                               center: .center,
+                               startAngle: Angle(degrees: 0),
+                               endAngle: Angle(degrees: 360 * fractionCompleted))
     }
 }
