@@ -23,9 +23,11 @@ class NSInitialTimer: ObservableObject {
     // MARK: - variables
 
     private var timer = Timer()
-    private var isTimerStarted: Bool = false
+    private(set) var isTimerStarted: Bool = false
 
+    private let fullyCompleteValue: Double = 100
     private let currentDate = Date()
+
     var startDate: Date { return currentDate.adding(.second, value: -10) }
     var endDate: Date { return currentDate.adding(.second, value: 50) }
 
@@ -38,7 +40,7 @@ class NSInitialTimer: ObservableObject {
             let now = Date()
             guard now > self.startDate else { return }
             self.timeRemain = self.endDate - now
-            if self.timeRemain <= 0 {
+            if self.timeRemain < 0 {
                 self.stopTimer()
             }
         }
@@ -69,9 +71,11 @@ class NSInitialTimer: ObservableObject {
     // MARK: - actions
 
     private func updateTimeRemainingPersentageIfNeeded() {
-        guard timeLeftPersentage < 100 else { return }
+        guard timeLeftPersentage < fullyCompleteValue else { return }
         let intervalFromStartToEnd = endDate - startDate
         let newTimeRemaingPersentage = (timeRemain / intervalFromStartToEnd) * 100
-        timeLeftPersentage = 100 - newTimeRemaingPersentage
+        timeLeftPersentage = newTimeRemaingPersentage == fullyCompleteValue
+        ? fullyCompleteValue
+        : fullyCompleteValue - newTimeRemaingPersentage
     }
 }

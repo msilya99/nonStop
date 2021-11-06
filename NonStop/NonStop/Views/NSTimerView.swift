@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct NSTimerView: View {
-    @EnvironmentObject var initialTimerDate: NSInitialTimer
+    @EnvironmentObject var initialTimer: NSInitialTimer
     
     var body: some View {
-        Text("Timer started at \(initialTimerDate.getStartDateString()) \n Timer will end at \(initialTimerDate.getEndDateString()) \n Time till end: \(initialTimerDate.getTimeRemainString())")
-            .multilineTextAlignment(.center)
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.black)
-            .onAppear {
-                initialTimerDate.startTimer()
-            }
+        VStack {
+            NSCircleProgressView(initialTimer: initialTimer)
+                .padding()
+            Text("Timer started at \(initialTimer.getStartDateString()) \n Timer will end at \(initialTimer.getEndDateString()) \n Time till end: \(initialTimer.getTimeRemainString())")
+                .multilineTextAlignment(.center)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.black)
+        }.onAppear {
+            initialTimer.startTimer()
+        }.onDisappear {
+            initialTimer.stopTimer()
+        }
     }
 }
 

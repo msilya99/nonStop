@@ -11,14 +11,14 @@ import UIKit
 @main
 struct NonStopApp: App {
     let persistenceController = PersistenceController.shared
-    @StateObject var initialTimerDate = NSInitialTimer()
+    @StateObject var initialTimer = NSInitialTimer()
 
     var body: some Scene {
         WindowGroup {
 //            CoreDataExample()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             NSMainTabsView()
-                .environmentObject(initialTimerDate)
+                .environmentObject(initialTimer)
         }
     }
 }

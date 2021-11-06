@@ -1,18 +1,18 @@
 //
-//  NSStandartCircleAnimation.swift
+//  NSDotStyleProgress.swift
 //  NonStop
 //
-//  Created by Ilya Maslou on 4.11.21.
+//  Created by Ilya Maslou on 6.11.21.
 //
 
 import SwiftUI
 
-struct NSStandartCircleAnimation: View {
-    @EnvironmentObject var initialTimer: NSInitialTimer
+struct NSDotStyleProgressView: View {
+    @ObservedObject var initialTimer: NSInitialTimer
 
     var body: some View {
         ProgressView(value: initialTimer.timeLeftPersentage, total: 100)
-            .progressViewStyle(NSGaugeProgressStyle())
+            .progressViewStyle(NSLineDotProgressStyle(timer: initialTimer))
             .frame(width: 200, height: 200)
             .contentShape(Rectangle())
             .onAppear {
@@ -21,11 +21,5 @@ struct NSStandartCircleAnimation: View {
             .onDisappear {
                 initialTimer.stopTimer()
             }
-    }
-}
-
-struct NSStandartCircleAnimation_Previews: PreviewProvider {
-    static var previews: some View {
-        NSStandartCircleAnimation()
     }
 }

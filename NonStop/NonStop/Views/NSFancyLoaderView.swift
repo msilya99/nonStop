@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NSStandartFancyAnimation: View {
+struct NSFancyLoaderView: View {
 
     let rotationTime: Double = 0.75
     let animationTime: Double = 1.9 // Sum of all animation times
@@ -91,7 +91,7 @@ struct SpinnerCircle: View {
 struct Spinner_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            NSStandartFancyAnimation()
+            NSFancyLoaderView()
         }
     }
 }

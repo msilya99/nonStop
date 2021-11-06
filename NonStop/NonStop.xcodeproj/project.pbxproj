@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		990DB561273337D800B62902 /* NSMainTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB560273337D800B62902 /* NSMainTabsView.swift */; };
 		990DB5632733380800B62902 /* NSAnimationsViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB5622733380800B62902 /* NSAnimationsViewList.swift */; };
-		990DB565273339CF00B62902 /* NSStandartCircleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB564273339CF00B62902 /* NSStandartCircleAnimation.swift */; };
-		990DB567273339EF00B62902 /* NSWatterCircleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB566273339EF00B62902 /* NSWatterCircleAnimation.swift */; };
-		990DB56927333A3000B62902 /* NSStandartImprovedAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB56827333A3000B62902 /* NSStandartImprovedAnimation.swift */; };
+		990DB565273339CF00B62902 /* NSCircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB564273339CF00B62902 /* NSCircleProgressView.swift */; };
+		990DB567273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB566273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift */; };
 		990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */; };
+		99745CA52736B3A100170F1D /* NSEllipseProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CA42736B3A100170F1D /* NSEllipseProgressView.swift */; };
+		99745CA72736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CA62736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift */; };
+		99745CA92736B8B800170F1D /* NSLineDotProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CA82736B8B800170F1D /* NSLineDotProgressStyle.swift */; };
+		99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */; };
+		99745CAD2736CB6F00170F1D /* NSWaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAC2736CB6F00170F1D /* NSWaveShape.swift */; };
 		99BAC1B22731E8B100536F7B /* NonStopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1B12731E8B100536F7B /* NonStopApp.swift */; };
 		99BAC1B42731E8B100536F7B /* CoreDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1B32731E8B100536F7B /* CoreDataExample.swift */; };
 		99BAC1B62731E8B400536F7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99BAC1B52731E8B400536F7B /* Assets.xcassets */; };
@@ -25,16 +29,20 @@
 		99BAC1D02731EFEF00536F7B /* DateTimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1CF2731EFEF00536F7B /* DateTimeFormat.swift */; };
 		99BAC1D22731F0D100536F7B /* AppLang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1D12731F0D100536F7B /* AppLang.swift */; };
 		99BAC1D52731F16B00536F7B /* NSSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1D42731F16B00536F7B /* NSSystem.swift */; };
-		99E8FA4E273496B400D8FCA0 /* NSStandartFancyAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8FA4D273496B400D8FCA0 /* NSStandartFancyAnimation.swift */; };
+		99E8FA4E273496B400D8FCA0 /* NSFancyLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		990DB560273337D800B62902 /* NSMainTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMainTabsView.swift; sourceTree = "<group>"; };
 		990DB5622733380800B62902 /* NSAnimationsViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAnimationsViewList.swift; sourceTree = "<group>"; };
-		990DB564273339CF00B62902 /* NSStandartCircleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStandartCircleAnimation.swift; sourceTree = "<group>"; };
-		990DB566273339EF00B62902 /* NSWatterCircleAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWatterCircleAnimation.swift; sourceTree = "<group>"; };
-		990DB56827333A3000B62902 /* NSStandartImprovedAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStandartImprovedAnimation.swift; sourceTree = "<group>"; };
+		990DB564273339CF00B62902 /* NSCircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCircleProgressView.swift; sourceTree = "<group>"; };
+		990DB566273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWatterCircleAnimationProgressView.swift; sourceTree = "<group>"; };
 		990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSGaugeProgressStyle.swift; sourceTree = "<group>"; };
+		99745CA42736B3A100170F1D /* NSEllipseProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEllipseProgressView.swift; sourceTree = "<group>"; };
+		99745CA62736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSGaugeEllipseProgressStyle.swift; sourceTree = "<group>"; };
+		99745CA82736B8B800170F1D /* NSLineDotProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLineDotProgressStyle.swift; sourceTree = "<group>"; };
+		99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDotStyleProgressView.swift; sourceTree = "<group>"; };
+		99745CAC2736CB6F00170F1D /* NSWaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWaveShape.swift; sourceTree = "<group>"; };
 		99BAC1AE2731E8B100536F7B /* NonStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NonStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99BAC1B12731E8B100536F7B /* NonStopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonStopApp.swift; sourceTree = "<group>"; };
 		99BAC1B32731E8B100536F7B /* CoreDataExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExample.swift; sourceTree = "<group>"; };
@@ -48,7 +56,7 @@
 		99BAC1CF2731EFEF00536F7B /* DateTimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeFormat.swift; sourceTree = "<group>"; };
 		99BAC1D12731F0D100536F7B /* AppLang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLang.swift; sourceTree = "<group>"; };
 		99BAC1D42731F16B00536F7B /* NSSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSystem.swift; sourceTree = "<group>"; };
-		99E8FA4D273496B400D8FCA0 /* NSStandartFancyAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSStandartFancyAnimation.swift; sourceTree = "<group>"; };
+		99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFancyLoaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */,
+				99745CA62736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift */,
+				99745CA82736B8B800170F1D /* NSLineDotProgressStyle.swift */,
+				99745CAC2736CB6F00170F1D /* NSWaveShape.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -118,10 +129,11 @@
 				990DB5622733380800B62902 /* NSAnimationsViewList.swift */,
 				990DB560273337D800B62902 /* NSMainTabsView.swift */,
 				99BAC1CC2731EE0F00536F7B /* NSTimerView.swift */,
-				990DB564273339CF00B62902 /* NSStandartCircleAnimation.swift */,
-				990DB566273339EF00B62902 /* NSWatterCircleAnimation.swift */,
-				990DB56827333A3000B62902 /* NSStandartImprovedAnimation.swift */,
-				99E8FA4D273496B400D8FCA0 /* NSStandartFancyAnimation.swift */,
+				990DB564273339CF00B62902 /* NSCircleProgressView.swift */,
+				990DB566273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift */,
+				99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */,
+				99745CA42736B3A100170F1D /* NSEllipseProgressView.swift */,
+				99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,23 +250,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */,
 				99BAC1CB2731ECC700536F7B /* Date+EX.swift in Sources */,
 				99BAC1BB2731E8B400536F7B /* Persistence.swift in Sources */,
 				99BAC1BE2731E8B400536F7B /* NonStop.xcdatamodeld in Sources */,
-				990DB56927333A3000B62902 /* NSStandartImprovedAnimation.swift in Sources */,
 				99BAC1B42731E8B100536F7B /* CoreDataExample.swift in Sources */,
 				990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */,
 				990DB5632733380800B62902 /* NSAnimationsViewList.swift in Sources */,
 				99BAC1CD2731EE0F00536F7B /* NSTimerView.swift in Sources */,
-				99E8FA4E273496B400D8FCA0 /* NSStandartFancyAnimation.swift in Sources */,
-				990DB567273339EF00B62902 /* NSWatterCircleAnimation.swift in Sources */,
+				99E8FA4E273496B400D8FCA0 /* NSFancyLoaderView.swift in Sources */,
+				99745CA92736B8B800170F1D /* NSLineDotProgressStyle.swift in Sources */,
+				990DB567273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift in Sources */,
 				99BAC1D02731EFEF00536F7B /* DateTimeFormat.swift in Sources */,
 				99BAC1C82731EBD900536F7B /* NSInitialTimer.swift in Sources */,
 				99BAC1B22731E8B100536F7B /* NonStopApp.swift in Sources */,
 				99BAC1D22731F0D100536F7B /* AppLang.swift in Sources */,
-				990DB565273339CF00B62902 /* NSStandartCircleAnimation.swift in Sources */,
+				99745CA52736B3A100170F1D /* NSEllipseProgressView.swift in Sources */,
+				990DB565273339CF00B62902 /* NSCircleProgressView.swift in Sources */,
 				99BAC1D52731F16B00536F7B /* NSSystem.swift in Sources */,
+				99745CA72736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift in Sources */,
 				990DB561273337D800B62902 /* NSMainTabsView.swift in Sources */,
+				99745CAD2736CB6F00170F1D /* NSWaveShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

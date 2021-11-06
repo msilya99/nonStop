@@ -11,23 +11,33 @@ struct NSGaugeProgressStyle: ProgressViewStyle {
 
     // MARK: - variables
 
-    var strokeColor = Color.blue
-    var strokeWidth = 25.0
+    @ObservedObject var timer: NSInitialTimer
+
+    var strokeColor = Color.red
+    var strokeWidth = 20.0
     var rotation: Angle = Angle(degrees: 270)
 
     // MARK: - actions
 
     func makeBody(configuration: Configuration) -> some View {
         let fractionCompleted = configuration.fractionCompleted ?? 0
-        return ZStack {
+        ZStack {
+            if timer.isTimerStarted {
+                Circle()
+                    .stroke(lineWidth: self.strokeWidth)
+                    .opacity(0.3)
+                    .foregroundColor(self.strokeColor)
+            }
+
             Circle()
                 .trim(from: 0, to: CGFloat(fractionCompleted))
                 .stroke(strokeColor,
                         style: StrokeStyle(lineWidth:
                                             CGFloat(strokeWidth),
-                                           lineCap: .round))
+                                           lineCap: .round,
+                                           lineJoin: .round))
                 .rotationEffect(rotation)
-                .animation(.easeInOut, value: fractionCompleted)
+                .animation(.easeInOut)
         }
     }
 }
