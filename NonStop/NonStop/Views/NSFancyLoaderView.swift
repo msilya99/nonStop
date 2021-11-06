@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// TODO: - удалить когда все что хотел попробуешь
+
 struct NSFancyLoaderView: View {
 
     let rotationTime: Double = 0.75
@@ -37,9 +39,9 @@ struct NSFancyLoaderView: View {
             }.frame(width: 200, height: 200)
         }
         .onAppear() {
-            self.animateSpinner()
+            animateSpinner()
             Timer.scheduledTimer(withTimeInterval: animationTime, repeats: true) { (mainTimer) in
-                self.animateSpinner()
+                animateSpinner()
             }
         }
     }
@@ -47,28 +49,28 @@ struct NSFancyLoaderView: View {
     // MARK: Animation methods
     func animateSpinner(with duration: Double, completion: @escaping (() -> Void)) {
         Timer.scheduledTimer(withTimeInterval: duration, repeats: false) { _ in
-            withAnimation(Animation.easeInOut(duration: self.rotationTime)) {
+            withAnimation(Animation.easeInOut(duration: rotationTime)) {
                 completion()
             }
         }
     }
 
     func animateSpinner() {
-        animateSpinner(with: rotationTime) { self.spinnerEndS1 = 1.0 }
+        animateSpinner(with: rotationTime) { spinnerEndS1 = 1.0 }
 
         animateSpinner(with: (rotationTime * 2) - 0.025) {
-            self.rotationDegreeS1 += fullRotation
-            self.spinnerEndS2S3 = 0.8
+            rotationDegreeS1 += fullRotation
+            spinnerEndS2S3 = 0.8
         }
 
         animateSpinner(with: (rotationTime * 2)) {
-            self.spinnerEndS1 = 0.03
-            self.spinnerEndS2S3 = 0.03
+            spinnerEndS1 = 0.03
+            spinnerEndS2S3 = 0.03
         }
 
-        animateSpinner(with: (rotationTime * 2) + 0.0525) { self.rotationDegreeS2 += fullRotation }
+        animateSpinner(with: (rotationTime * 2) + 0.0525) { rotationDegreeS2 += fullRotation }
 
-        animateSpinner(with: (rotationTime * 2) + 0.225) { self.rotationDegreeS3 += fullRotation }
+        animateSpinner(with: (rotationTime * 2) + 0.225) { rotationDegreeS3 += fullRotation }
     }
 }
 

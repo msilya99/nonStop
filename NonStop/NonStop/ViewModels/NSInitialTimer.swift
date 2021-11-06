@@ -28,8 +28,8 @@ class NSInitialTimer: ObservableObject {
     private let fullyCompleteValue: Double = 100
     private let currentDate = Date()
 
-    var startDate: Date { return currentDate.adding(.second, value: -10) }
-    var endDate: Date { return currentDate.adding(.second, value: 50) }
+    var startDate: Date { return currentDate.adding(.second, value: 1) }
+    var endDate: Date { return currentDate.adding(.second, value: 30) }
 
     // MARK: - timer actions
 

@@ -12,7 +12,7 @@ struct NSEllipseProgressView: View {
 
     var body: some View {
         ProgressView(value: initialTimer.timeLeftPersentage, total: 100)
-            .progressViewStyle(NSGaugeEllipseProgressStyle())
+            .progressViewStyle(NSGaugeEllipseProgressStyle(timer: initialTimer))
             .frame(width: 130, height: 200)
             .contentShape(Rectangle())
             .onAppear {

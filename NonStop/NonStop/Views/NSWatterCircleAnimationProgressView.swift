@@ -45,7 +45,7 @@ struct NSCircleWaveView: View {
                     .stroke(Color.blue,
                             lineWidth: 0.025 * min(geo.size.width, geo.size.height))
                     .overlay(
-                        NSWaveShape(offset: Angle(degrees: self.waveOffset.degrees),
+                        NSWaveShape(offset: Angle(degrees: waveOffset.degrees),
                                     percent: Double(percent)/100)
                             .fill(Color(red: 0, green: 0.5, blue: 0.75, opacity: 0.5))
                             .clipShape(Circle().scale(0.94))
@@ -55,7 +55,7 @@ struct NSCircleWaveView: View {
         .aspectRatio(1, contentMode: .fit)
         .onAppear {
             withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: false)) {
-                self.waveOffset = Angle(degrees: 360)
+                waveOffset = Angle(degrees: 360)
             }
         }
     }
