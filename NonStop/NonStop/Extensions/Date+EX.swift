@@ -23,7 +23,7 @@ extension Date {
     ///   - value: multiples of components to add.
     /// - Returns: original date + multiples of component added.
     func adding(_ component: Calendar.Component, value: Int) -> Date {
-        return Calendar.current.date(byAdding: component, value: value, to: self)!
+        return SYS.calendar.date(byAdding: component, value: value, to: self)!
     }
 
     /// SwifterSwift: Add calendar component to date.
@@ -38,8 +38,73 @@ extension Date {
     ///   - component: component type.
     ///   - value: multiples of compnenet to add.
     mutating func add(_ component: Calendar.Component, value: Int) {
-        if let date = Calendar.current.date(byAdding: component, value: value, to: self) {
+        if let date = SYS.calendar.date(byAdding: component, value: value, to: self) {
             self = date
+        }
+    }
+
+    /// SwifterSwift: Hour.
+    ///
+    ///     Date().hour -> 17 // 5 pm
+    ///
+    ///     var someDate = Date()
+    ///     someDate.hour = 13 // sets someDate's hour to 1 pm.
+    ///
+    var hour: Int {
+        get {
+            return SYS.calendar.component(.hour, from: self)
+        }
+        set {
+            guard let allowedRange = SYS.calendar.range(of: .hour, in: .day, for: self),
+                  allowedRange.contains(newValue) else { return }
+            let currentHour = SYS.calendar.component(.hour, from: self)
+            let hoursToAdd = newValue - currentHour
+            if let date = SYS.calendar.date(byAdding: .hour, value: hoursToAdd, to: self) {
+                self = date
+            }
+        }
+    }
+
+    /// SwifterSwift: Minutes.
+    ///
+    ///     Date().minute -> 39
+    ///
+    ///     var someDate = Date()
+    ///     someDate.minute = 10 // sets someDate's minutes to 10.
+    ///
+    var minute: Int {
+        get {
+            return SYS.calendar.component(.minute, from: self)
+        }
+        set {
+            guard let allowedRange = SYS.calendar.range(of: .minute, in: .hour, for: self),
+                  allowedRange.contains(newValue) else { return }
+            let currentMinutes = SYS.calendar.component(.minute, from: self)
+            let minutesToAdd = newValue - currentMinutes
+            if let date = SYS.calendar.date(byAdding: .minute, value: minutesToAdd, to: self) {
+                self = date
+            }
+        }
+    }
+
+    /// SwifterSwift: Seconds.
+    ///
+    ///     Date().second -> 55
+    ///
+    ///     var someDate = Date()
+    ///     someDate.second = 15 // sets someDate's seconds to 15.
+    ///
+    var second: Int {
+        get {
+            return SYS.calendar.component(.second, from: self)
+        }
+        set {
+            guard let allowedRange = SYS.calendar.range(of: .second, in: .minute, for: self), allowedRange.contains(newValue) else { return }
+            let currentSeconds = SYS.calendar.component(.second, from: self)
+            let secondsToAdd = newValue - currentSeconds
+            if let date = SYS.calendar.date(byAdding: .second, value: secondsToAdd, to: self) {
+                self = date
+            }
         }
     }
 

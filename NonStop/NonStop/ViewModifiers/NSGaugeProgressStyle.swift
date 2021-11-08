@@ -15,7 +15,7 @@ struct NSGaugeProgressStyle: ProgressViewStyle {
 
     var foregroundColor = Color.red
     var gradientColor = Gradient(colors: [.red, .pink])
-    var strokeWidth: CGFloat = 20.0
+    var strokeWidth: CGFloat = 25
     var rotation: Angle = Angle(degrees: 270)
 
     // MARK: - actions
@@ -23,11 +23,10 @@ struct NSGaugeProgressStyle: ProgressViewStyle {
     func makeBody(configuration: Configuration) -> some View {
         let fractionCompleted: CGFloat = configuration.fractionCompleted ?? 0
         ZStack {
-            if timer.isTimerStarted {
-                Circle()
-                    .stroke(foregroundColor, lineWidth: strokeWidth)
-                    .opacity(0.3)
-            }
+            Circle()
+                .stroke(foregroundColor, lineWidth: strokeWidth)
+                .opacity(0.3)
+                .hidden(!timer.isTimerStarted)
 
             Circle()
                 .trim(from: 0, to: fractionCompleted)

@@ -23,9 +23,3 @@ struct NSMainTabsView: View {
         }
     }
 }
-
-struct NSMainTabsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NSMainTabsView()
-    }
-}

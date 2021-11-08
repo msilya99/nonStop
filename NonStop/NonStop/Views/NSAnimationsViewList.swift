@@ -14,9 +14,6 @@ struct NSAnimationsViewList: View {
         NavigationView {
             List {
                 Section() {
-                    NavigationLink(destination: NSCircleProgressView(initialTimer: initialTimer)) {
-                        Text("StandartCircleAnimation")
-                    }
                     NavigationLink(destination: NSFancyLoaderView()) {
                         Text("StandartFancyCircleAnimation")
                     }
@@ -33,11 +30,5 @@ struct NSAnimationsViewList: View {
             }.navigationTitle("Animations")
                 .listStyle(InsetGroupedListStyle())
         }
-    }
-}
-
-struct NSAnimationsViewList_Previews: PreviewProvider {
-    static var previews: some View {
-        NSAnimationsViewList()
     }
 }

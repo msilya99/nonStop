@@ -14,8 +14,8 @@ struct NSGaugeEllipseProgressStyle: ProgressViewStyle {
     @ObservedObject var timer: NSInitialTimer
 
     var strokeColor = Color.gray
-    var innerStrokeWidth = 5
-    var strokeWidth: CGFloat = 7
+    var innerStrokeWidth = 7
+    var strokeWidth: CGFloat = 9
     var rotation = Angle(degrees: 270)
     var gradientColor = Gradient(colors: [.gray.opacity(0.1), .gray])
 
@@ -24,12 +24,11 @@ struct NSGaugeEllipseProgressStyle: ProgressViewStyle {
     func makeBody(configuration: Configuration) -> some View {
         let fractionCompleted: CGFloat = configuration.fractionCompleted ?? 0
         return ZStack {
-            if timer.isTimerStarted {
-                Capsule()
-                    .stroke(strokeColor, lineWidth: strokeWidth)
-                    .opacity(0.1)
-                    .rotationEffect(rotation)
-            }
+            Capsule()
+                .stroke(strokeColor, lineWidth: strokeWidth)
+                .opacity(0.1)
+                .rotationEffect(rotation)
+                .hidden(!timer.isTimerStarted)
 
             Capsule()
                 .trim(from: 0, to: fractionCompleted)

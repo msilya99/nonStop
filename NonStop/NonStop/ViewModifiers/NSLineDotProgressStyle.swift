@@ -28,6 +28,7 @@ struct NSLineDotProgressStyle: ProgressViewStyle {
                         style: StrokeStyle(lineWidth: strokeWidth,
                                            dash: [7]))
                 .rotationEffect(rotation)
+                .hidden(!timer.isTimerStarted)
 
             Circle()
                 .trim(from: 0.0, to: fractionCompleted)

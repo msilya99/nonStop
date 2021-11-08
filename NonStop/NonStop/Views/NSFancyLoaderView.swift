@@ -89,11 +89,3 @@ struct SpinnerCircle: View {
             .rotationEffect(rotation)
     }
 }
-
-struct Spinner_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            NSFancyLoaderView()
-        }
-    }
-}

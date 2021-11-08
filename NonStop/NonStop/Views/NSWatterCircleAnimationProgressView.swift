@@ -9,12 +9,20 @@ import SwiftUI
 
 struct NSWatterCircleAnimationProgressView: View {
 
+    // MARK: - variables
+
     @ObservedObject var initialTimer: NSInitialTimer
+
+    private let progressSizeCoefficient = 0.65
+
+    // MARK: - views
 
     var body: some View {
         NSCircleWaveView(initialTimer: initialTimer,
                          percent: initialTimer.timeLeftPersentage)
-            .frame(width: 300, height: 300)
+            .frame(width: SYS.screenSize.width * progressSizeCoefficient,
+                   height: SYS.screenSize.width * progressSizeCoefficient)
+            .padding()
             .onAppear {
                 initialTimer.startTimer()
             }
@@ -39,8 +47,8 @@ struct NSCircleWaveView: View {
         GeometryReader { geo in
             ZStack {
                 Text("\(initialTimer.getTimeRemainString())")
-                    .foregroundColor(.black)
-                    .font(Font.system(size: 0.15 * min(geo.size.width, geo.size.height)))
+                    .font(Font.system(size: 0.2 * min(geo.size.width, geo.size.height)))
+                    .padding()
                 Circle()
                     .stroke(Color.blue,
                             lineWidth: 0.025 * min(geo.size.width, geo.size.height))

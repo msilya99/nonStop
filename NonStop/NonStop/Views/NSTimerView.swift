@@ -8,27 +8,32 @@
 import SwiftUI
 
 struct NSTimerView: View {
+
+    // MARK: - variables
+
+    private let progressSizeCoefficient = 0.65
+    private let counterLabelSizeCoefficient = 0.6
+
     @EnvironmentObject var initialTimer: NSInitialTimer
-    
+
+    // MARK: - views
+
     var body: some View {
-        VStack {
-            NSCircleProgressView(initialTimer: initialTimer)
+        ZStack(alignment: .center) {
+            ProgressView(value: initialTimer.timeLeftPersentage, total: 100)
+                .progressViewStyle(NSGaugeProgressStyle(timer: initialTimer))
+                .frame(width: SYS.screenSize.width * progressSizeCoefficient,
+                       height: SYS.screenSize.width * progressSizeCoefficient)
                 .padding()
-            Text("Timer started at \(initialTimer.getStartDateString()) \n Timer will end at \(initialTimer.getEndDateString()) \n Time till end: \(initialTimer.getTimeRemainString())")
-                .multilineTextAlignment(.center)
+
+            NSTimerCounterLabel(initialTimer: initialTimer)
+                .frame(maxWidth: SYS.screenSize.width * counterLabelSizeCoefficient)
+                .hidden(!initialTimer.isTimerStarted)
                 .padding()
-                .foregroundColor(.white)
-                .background(Color.black)
         }.onAppear {
             initialTimer.startTimer()
         }.onDisappear {
             initialTimer.stopTimer()
         }
-    }
-}
-
-struct NSTimerView_Previews: PreviewProvider {
-    static var previews: some View {
-        NSTimerView()
     }
 }

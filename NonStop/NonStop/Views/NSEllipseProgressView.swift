@@ -8,24 +8,35 @@
 import SwiftUI
 
 struct NSEllipseProgressView: View {
+
+    // MARK: - variables
+    
     @EnvironmentObject var initialTimer: NSInitialTimer
 
-    var body: some View {
-        ProgressView(value: initialTimer.timeLeftPersentage, total: 100)
-            .progressViewStyle(NSGaugeEllipseProgressStyle(timer: initialTimer))
-            .frame(width: 130, height: 200)
-            .contentShape(Rectangle())
-            .onAppear {
-                initialTimer.startTimer()
-            }
-            .onDisappear {
-                initialTimer.stopTimer()
-            }
-    }
-}
+    private let progressHeightCoefficient = 0.65
+    private let progressWidthCoefficient = 0.42
+    private let counterLabelSizeCoefficient = 0.6
 
-struct NSEllipseAnimation_Previews: PreviewProvider {
-    static var previews: some View {
-        NSEllipseProgressView()
+    // MARK: - views
+
+    var body: some View {
+        ZStack(alignment: .center) {
+            ProgressView(value: initialTimer.timeLeftPersentage, total: 100)
+                .progressViewStyle(NSGaugeEllipseProgressStyle(timer: initialTimer))
+                .frame(width: SYS.screenSize.width * progressWidthCoefficient,
+                       height: SYS.screenSize.width * progressHeightCoefficient)
+                .padding()
+            
+            NSTimerCounterLabel(initialTimer: initialTimer, fontWeight: .medium)
+                .frame(maxWidth: SYS.screenSize.width * counterLabelSizeCoefficient)
+                .hidden(!initialTimer.isTimerStarted)
+                .padding()
+        }
+        .onAppear {
+            initialTimer.startTimer()
+        }
+        .onDisappear {
+            initialTimer.stopTimer()
+        }
     }
 }

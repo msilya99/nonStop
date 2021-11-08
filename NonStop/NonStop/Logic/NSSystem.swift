@@ -11,6 +11,10 @@ let SYS = NSSystem()
 
 class NSSystem {
 
+    // MARK: sizes
+
+    let screenSize = UIScreen.main.bounds.size
+
     // MARK: language
 
     var langCode: AppLang = .ru

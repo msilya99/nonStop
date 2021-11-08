@@ -28,8 +28,8 @@ class NSInitialTimer: ObservableObject {
     private let fullyCompleteValue: Double = 100
     private let currentDate = Date()
 
-    var startDate: Date { return currentDate.adding(.second, value: 1) }
-    var endDate: Date { return currentDate.adding(.second, value: 30) }
+    var startDate: Date { return currentDate.adding(.second, value: -10) }
+    var endDate: Date { return currentDate.adding(.hour, value: 20) }
 
     // MARK: - timer actions
 
@@ -56,16 +56,37 @@ class NSInitialTimer: ObservableObject {
     // MARK: - getters
 
     func getStartDateString() -> String {
-        return startDate.toString(format: DateTimeFormat.timeUserViewFormat)
+        return startDate.toString(format: DateTimeFormat.hoursAndMinutes)
     }
 
     func getEndDateString() -> String {
-        return endDate.toString(format: DateTimeFormat.timeUserViewFormat)
+        return endDate.toString(format: DateTimeFormat.hoursAndMinutes)
     }
 
     func getTimeRemainString() -> String {
-        return Date(timeIntervalSinceReferenceDate: timeRemain)
-            .toString(format: DateTimeFormat.fullTime)
+        let date = Date(timeIntervalSinceReferenceDate: timeRemain)
+        var dateFormat: String
+        switch (date.hour, date.minute, date.second) {
+        case (let hour, let minute , _) where hour == 0 && minute > 0:
+            dateFormat = DateTimeFormat.minutesAndSeconds
+        case (let hour, let minute , let second) where hour == 0 && minute == 0 && second > 0:
+            dateFormat = DateTimeFormat.seconds
+        default:
+            dateFormat = DateTimeFormat.fullTime
+        }
+        return date.toString(format: dateFormat)
+    }
+
+    func getTimeRemainRatio() -> CGFloat {
+        let date = Date(timeIntervalSinceReferenceDate: timeRemain)
+        switch (date.hour, date.minute, date.second) {
+        case (let hour, let minute , _) where hour == 0 && minute > 0:
+             return 0.15
+        case (let hour, let minute , let second) where hour == 0 && minute == 0 && second > 0:
+            return 0.2
+        default:
+            return 0.1
+        }
     }
 
     // MARK: - actions
