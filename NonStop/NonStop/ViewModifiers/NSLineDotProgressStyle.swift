@@ -36,6 +36,7 @@ struct NSLineDotProgressStyle: ProgressViewStyle {
                         style: StrokeStyle(lineWidth: strokeWidth,
                                            lineCap: .butt))
                 .rotationEffect(rotation)
+                .animation(.easeInOut)
         }
     }
 }

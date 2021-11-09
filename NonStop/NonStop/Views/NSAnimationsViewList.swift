@@ -19,6 +19,9 @@ struct NSAnimationsViewList: View {
         NavigationView {
             List {
                 Section() {
+                    NavigationLink(destination: NSTimerView()) {
+                        Text("StandartCircleAnimation")
+                    }
                     NavigationLink(destination: NSFancyLoaderView()) {
                         Text("StandartFancyCircleAnimation")
                     }

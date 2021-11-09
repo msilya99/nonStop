@@ -29,7 +29,7 @@ class NSInitialTimer: ObservableObject {
     private let currentDate = Date()
 
     var startDate: Date { return currentDate.adding(.second, value: -10) }
-    var endDate: Date { return currentDate.adding(.hour, value: 20) }
+    var endDate: Date { return currentDate.adding(.second, value: 20) }
 
     // MARK: - timer actions
 
