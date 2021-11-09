@@ -12,22 +12,28 @@ struct NSDotStyleProgressView: View {
     // MARK: - variables
 
     @ObservedObject var initialTimer: NSInitialTimer
-    private let progressSizeCoefficient = 0.65
-    private let counterLabelSizeCoefficient = 0.6
+    private let progressSizeCoefficient = 0.75
+
+    // MARK: - views
 
     var body: some View {
-        ZStack(alignment: .center) {
-            ProgressView(value: initialTimer.timeLeftPersentage, total: 100)
-                .progressViewStyle(NSLineDotProgressStyle(timer: initialTimer))
-                .frame(width: SYS.screenSize.width * progressSizeCoefficient,
-                       height: SYS.screenSize.width * progressSizeCoefficient)
-                .padding()
+        GeometryReader { geo in
+            ZStack(alignment: .center) {
+                ProgressView(value: initialTimer.timeLeftPersentage, total: 100)
+                    .progressViewStyle(NSLineDotProgressStyle(timer: initialTimer))
+                    .padding()
 
-            NSTimerCounterLabel(initialTimer: initialTimer, fontWeight: .medium)
-                .frame(maxWidth: SYS.screenSize.width * counterLabelSizeCoefficient)
-                .hidden(!initialTimer.isTimerStarted)
-                .padding()
+                NSTimerCounterLabel(initialTimer: initialTimer, fontWeight: .medium)
+                    .hidden(!initialTimer.isTimerStarted)
+                    .font(.system(size: initialTimer.getTimeRemainRatio() * geo.size.width,
+                                  design: .rounded))
+                    .padding()
+            }
         }
+        .aspectRatio(1, contentMode: .fit)
+        .frame(width: SYS.screenSize.width * progressSizeCoefficient,
+               height: SYS.screenSize.width * progressSizeCoefficient,
+               alignment: .center)
         .onAppear {
             initialTimer.startTimer()
         }

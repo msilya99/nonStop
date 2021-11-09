@@ -18,12 +18,10 @@ struct NSTimerCounterLabel: View {
 
     var body: some View {
         Text("\(initialTimer.getTimeRemainString())")
-            .font(.system(size: SYS.screenSize.width * initialTimer.getTimeRemainRatio(),
-                              design: .rounded))
-                .fontWeight(fontWeight)
-                .padding()
-                .lineLimit(1)
-                .frame(alignment: .center)
-                .minimumScaleFactor(0.01)
+            .fontWeight(fontWeight)
+            .padding()
+            .lineLimit(1)
+            .frame(alignment: .center)
+            .minimumScaleFactor(0.01)
     }
 }

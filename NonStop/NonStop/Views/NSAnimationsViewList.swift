@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct NSAnimationsViewList: View {
+
+    // MARK: - variables
+
     @EnvironmentObject var initialTimer: NSInitialTimer
+
+    // MARK: - views
 
     var body: some View {
         NavigationView {
@@ -19,9 +24,6 @@ struct NSAnimationsViewList: View {
                     }
                     NavigationLink(destination: NSWatterCircleAnimationProgressView(initialTimer: initialTimer)) {
                         Text("WatterCircleAnimation")
-                    }
-                    NavigationLink(destination: NSEllipseProgressView()) {
-                        Text("EllipseAnimation")
                     }
                     NavigationLink(destination: NSDotStyleProgressView(initialTimer: initialTimer)) {
                         Text("DotStyleProgress")

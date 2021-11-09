@@ -13,7 +13,6 @@
 		990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */; };
 		9935ED982739C9F400A5A1C1 /* NSTimerCounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */; };
 		9935ED9A2739CC6900A5A1C1 /* View + EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935ED992739CC6800A5A1C1 /* View + EX.swift */; };
-		99745CA52736B3A100170F1D /* NSEllipseProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CA42736B3A100170F1D /* NSEllipseProgressView.swift */; };
 		99745CA72736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CA62736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift */; };
 		99745CA92736B8B800170F1D /* NSLineDotProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CA82736B8B800170F1D /* NSLineDotProgressStyle.swift */; };
 		99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */; };
@@ -41,7 +40,6 @@
 		990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSGaugeProgressStyle.swift; sourceTree = "<group>"; };
 		9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTimerCounterLabel.swift; sourceTree = "<group>"; };
 		9935ED992739CC6800A5A1C1 /* View + EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + EX.swift"; sourceTree = "<group>"; };
-		99745CA42736B3A100170F1D /* NSEllipseProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEllipseProgressView.swift; sourceTree = "<group>"; };
 		99745CA62736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSGaugeEllipseProgressStyle.swift; sourceTree = "<group>"; };
 		99745CA82736B8B800170F1D /* NSLineDotProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLineDotProgressStyle.swift; sourceTree = "<group>"; };
 		99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDotStyleProgressView.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */,
 				990DB566273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift */,
 				99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */,
-				99745CA42736B3A100170F1D /* NSEllipseProgressView.swift */,
 				99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */,
 			);
 			path = Views;
@@ -272,7 +269,6 @@
 				9935ED9A2739CC6900A5A1C1 /* View + EX.swift in Sources */,
 				99BAC1B22731E8B100536F7B /* NonStopApp.swift in Sources */,
 				99BAC1D22731F0D100536F7B /* AppLang.swift in Sources */,
-				99745CA52736B3A100170F1D /* NSEllipseProgressView.swift in Sources */,
 				9935ED982739C9F400A5A1C1 /* NSTimerCounterLabel.swift in Sources */,
 				99BAC1D52731F16B00536F7B /* NSSystem.swift in Sources */,
 				99745CA72736B3BF00170F1D /* NSGaugeEllipseProgressStyle.swift in Sources */,

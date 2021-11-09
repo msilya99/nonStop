@@ -69,7 +69,7 @@ class NSInitialTimer: ObservableObject {
         switch (date.hour, date.minute, date.second) {
         case (let hour, let minute , _) where hour == 0 && minute > 0:
             dateFormat = DateTimeFormat.minutesAndSeconds
-        case (let hour, let minute , let second) where hour == 0 && minute == 0 && second > 0:
+        case (let hour, let minute , let second) where hour == 0 && minute == 0 && second >= 0:
             dateFormat = DateTimeFormat.seconds
         default:
             dateFormat = DateTimeFormat.fullTime
@@ -81,11 +81,11 @@ class NSInitialTimer: ObservableObject {
         let date = Date(timeIntervalSinceReferenceDate: timeRemain)
         switch (date.hour, date.minute, date.second) {
         case (let hour, let minute , _) where hour == 0 && minute > 0:
-             return 0.15
-        case (let hour, let minute , let second) where hour == 0 && minute == 0 && second > 0:
-            return 0.2
+             return 0.2
+        case (let hour, let minute , let second) where hour == 0 && minute == 0 && second >= 0:
+            return 0.25
         default:
-            return 0.1
+            return 0.15
         }
     }
 
