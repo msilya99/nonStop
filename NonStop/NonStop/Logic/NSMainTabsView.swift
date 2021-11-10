@@ -22,10 +22,6 @@ struct NSMainTabsView: View {
         ZStack {
             TabView(selection: $selectedItem) {
                 NSAnimationsViewList()
-                    .tabItem {
-                        Label("Now",
-                              systemImage: "clock")
-                    }
                     .tag(1)
                 NSTimerView()
                     .tabItem {
@@ -33,6 +29,36 @@ struct NSMainTabsView: View {
                               systemImage: "list.bullet.rectangle")
                     }
                     .tag(2)
+            }
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Spacer()
+                Button {
+                    selectedItem = 1
+                } label: {
+                    Label("Now",
+                          systemImage: "clock")
+                }.padding(20)
+
+                Spacer()
+
+                NSAddItemTabButon {
+                    selectedItem = 2
+                }
+                    .frame(width: SYS.screenSize.width / 7,
+                           height: SYS.screenSize.width / 7)
+                    .padding()
+                    .offset(x: 0, y: -8)
+
+                Spacer()
+                Button {
+                    selectedItem = 2
+                } label: {
+                    Label("Planner",
+                          systemImage: "list.bullet.rectangle")
+                }
+                Spacer()
             }
         }
         .actionSheet(isPresented: $shouldShowActionSheet) {

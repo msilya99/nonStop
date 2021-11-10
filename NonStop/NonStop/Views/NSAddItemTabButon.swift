@@ -13,9 +13,17 @@ struct NSAddItemTabButon: View {
 
     @Environment(\.colorScheme) var colorScheme
 
+    @State var isPressed: Bool = false
     var strokeWidth: CGFloat = 4
     var imageName: String = "plus"
+    var action: () -> Void
     private var imageShrinkCoefficient: CGFloat = 1.8
+
+    // MARK: initialization
+
+    init(action: @escaping () -> Void) {
+        self.action = action
+    }
 
     // MARK: - views
 
@@ -38,5 +46,13 @@ struct NSAddItemTabButon: View {
                     .foregroundColor(colorScheme == .dark ? .black : .white)
             }
         }
+        .scaleEffect(isPressed ? 1.2 : 1)
+        .animation(.easeOut(duration: 0.2), value: isPressed)
+        .modifier(NSPressModifier(
+            onPress: { self.isPressed = true },
+            onRelease: {
+                self.isPressed = false
+                self.action()
+            }))
     }
 }
