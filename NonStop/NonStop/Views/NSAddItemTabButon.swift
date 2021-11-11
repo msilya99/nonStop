@@ -59,6 +59,5 @@ struct NSAddItemTabButon: View {
         .frame(width: SYS.screenSize.width / 7,
                height: SYS.screenSize.width / 7)
         .padding()
-        .offset(x: 0, y: -8)
     }
 }
