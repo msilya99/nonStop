@@ -10,15 +10,22 @@ import UIKit
 
 @main
 struct NonStopApp: App {
+
+    // MARK: - global variables
+
     let persistenceController = PersistenceController.shared
     @StateObject var initialTimer = NSInitialTimer()
+    @StateObject var themeColors = NSThemeColors()
+
+    @Environment(\.colorScheme) var colorScheme
+
+    // MARK: - app main view
 
     var body: some Scene {
         WindowGroup {
-//            CoreDataExample()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             NSMainTabsView()
                 .environmentObject(initialTimer)
+                .environmentObject(themeColors)
         }
     }
 }

@@ -12,8 +12,10 @@ struct NSAddItemTabButon: View {
     // MARK: - variables
 
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var themeColors: NSThemeColors
 
     @State var isPressed: Bool = false
+
     var strokeWidth: CGFloat = 4
     var imageName: String = "plus"
     var action: () -> Void
@@ -32,10 +34,10 @@ struct NSAddItemTabButon: View {
             let minSide = min(geo.size.width, geo.size.height)
             ZStack {
                 Circle()
-                    .stroke(colorScheme == .dark ? .black : .white,
+                    .stroke(themeColors.invertedBaseColor,
                             lineWidth: strokeWidth)
                     .background(Circle()
-                                    .fill(colorScheme == .dark ? .white : .black))
+                                    .fill(themeColors.baseColor))
                     .frame(width: minSide)
 
                 Image(systemName: imageName)
@@ -43,16 +45,20 @@ struct NSAddItemTabButon: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: minSide / imageShrinkCoefficient ,
                            height: minSide / imageShrinkCoefficient)
-                    .foregroundColor(colorScheme == .dark ? .black : .white)
+                    .foregroundColor(themeColors.invertedBaseColor)
             }
         }
         .scaleEffect(isPressed ? 1.2 : 1)
-        .animation(.easeOut(duration: 0.2), value: isPressed)
+        .animation(.easeOut(duration: 0.3), value: isPressed)
         .modifier(NSPressModifier(
             onPress: { self.isPressed = true },
             onRelease: {
                 self.isPressed = false
                 self.action()
             }))
+        .frame(width: SYS.screenSize.width / 7,
+               height: SYS.screenSize.width / 7)
+        .padding()
+        .offset(x: 0, y: -8)
     }
 }

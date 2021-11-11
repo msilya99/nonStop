@@ -19,6 +19,10 @@ class NSSystem {
 
     var langCode: AppLang = .ru
 
+    var appTheme: AppTheme {
+        UITraitCollection.current.userInterfaceStyle == .dark ? .dark : .light
+    }
+
     // MARK: - location
 
     private(set) var calendar: Calendar
