@@ -14,21 +14,10 @@ enum NSThemeColorType {
 
 class NSThemeColors: ObservableObject {
 
-    // MARK: - variables
-
-    private var isDarkTheme: Bool {
-        return SYS.appTheme == .dark
-    }
-
     // MARK: - colors
 
-    private var baseColor: Color {
-        return isDarkTheme ? .white : .black
-    }
-
-    private var invertedBaseColor: Color {
-        return isDarkTheme ? .black : .white
-    }
+    private var baseColor = Color(light: .black, dark: .white)
+    private var invertedBaseColor = Color(light: .white, dark: .black)
 
     func getColorByType(_ type: NSThemeColorType) -> Color {
         switch type {
