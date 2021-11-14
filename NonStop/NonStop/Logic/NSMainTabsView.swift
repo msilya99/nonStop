@@ -12,7 +12,7 @@ struct NSMainTabsView: View {
     // MARK: - variables
 
     @State private var selectedItem = 1
-    @State private var shouldShowActionSheet = false
+    @State private var shouldShowSheet = false
 
     // MARK: - init
 
@@ -32,15 +32,11 @@ struct NSMainTabsView: View {
             }
 
             NSTabBarView(selectedItem: $selectedItem,
-                         addItemAction: { self.shouldShowActionSheet = true })
+                         addItemAction: { shouldShowSheet = true })
         }
         .edgesIgnoringSafeArea(.bottom)
-        .actionSheet(isPresented: $shouldShowActionSheet) {
-            ActionSheet(title: Text("Title"),
-                        message: Text("Message"),
-                        buttons: [
-                            .cancel { shouldShowActionSheet.toggle() }
-                        ])
+        .sheet(isPresented: $shouldShowSheet) {
+            NSAddEventSheet(shouldBeVisible: $shouldShowSheet)
         }
     }
 }

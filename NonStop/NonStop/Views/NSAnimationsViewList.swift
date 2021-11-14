@@ -32,8 +32,9 @@ struct NSAnimationsViewList: View {
                         Text("DotStyleProgress")
                     }
                 }
-            }.navigationTitle("Animations")
-                .listStyle(InsetGroupedListStyle())
+            }
+            .navigationTitle("Animations")
+            .listStyle(InsetGroupedListStyle())
         }
     }
 }

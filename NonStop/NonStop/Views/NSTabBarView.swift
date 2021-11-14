@@ -11,9 +11,9 @@ struct NSTabBarView: View {
 
     // MARK: - variables
 
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
     @Environment(\.colorScheme) var colorScheme
     @StateObject var themeColors = NSThemeColors()
-    @Environment(\.safeAreaInsets) private var safeAreaInsets
 
     @Binding var selectedItem: Int
     var addItemAction: () -> Void

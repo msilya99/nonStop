@@ -23,6 +23,7 @@
 		99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */; };
 		99745CAD2736CB6F00170F1D /* NSWaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAC2736CB6F00170F1D /* NSWaveShape.swift */; };
 		99745CAF2736E4FD00170F1D /* NSProgressViewStyleEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */; };
+		99AD3996274187BD003DD9A9 /* NSAddEventSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */; };
 		99B232E4273B24110093C3AC /* NSAddItemTabButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */; };
 		99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E9273B45910093C3AC /* NSPressModifier.swift */; };
 		99BAC1B22731E8B100536F7B /* NonStopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1B12731E8B100536F7B /* NonStopApp.swift */; };
@@ -57,6 +58,7 @@
 		99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDotStyleProgressView.swift; sourceTree = "<group>"; };
 		99745CAC2736CB6F00170F1D /* NSWaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWaveShape.swift; sourceTree = "<group>"; };
 		99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSProgressViewStyleEx.swift; sourceTree = "<group>"; };
+		99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEventSheet.swift; sourceTree = "<group>"; };
 		99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddItemTabButon.swift; sourceTree = "<group>"; };
 		99B232E9273B45910093C3AC /* NSPressModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPressModifier.swift; sourceTree = "<group>"; };
 		99BAC1AE2731E8B100536F7B /* NonStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NonStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 				99672700273C7F5500998F87 /* NSTabBarButton.swift */,
 				9970712C273C8B09009EC103 /* NSTabbarButtons.swift */,
 				99548FCA273DCE5600BD477E /* NSTabBarView.swift */,
+				99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */,
 				99BAC1CB2731ECC700536F7B /* Date+EX.swift in Sources */,
 				99BAC1BB2731E8B400536F7B /* Persistence.swift in Sources */,
+				99AD3996274187BD003DD9A9 /* NSAddEventSheet.swift in Sources */,
 				99BAC1BE2731E8B400536F7B /* NonStop.xcdatamodeld in Sources */,
 				99BAC1B42731E8B100536F7B /* CoreDataExample.swift in Sources */,
 				99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */,
