@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum NSThemeColorType {
+    case base
+    case baseInverted
+}
+
 class NSThemeColors: ObservableObject {
 
     // MARK: - variables
@@ -17,11 +22,20 @@ class NSThemeColors: ObservableObject {
 
     // MARK: - colors
 
-    var baseColor: Color {
+    private var baseColor: Color {
         return isDarkTheme ? .white : .black
     }
 
-    var invertedBaseColor: Color {
+    private var invertedBaseColor: Color {
         return isDarkTheme ? .black : .white
+    }
+
+    func getColorByType(_ type: NSThemeColorType) -> Color {
+        switch type {
+        case .base:
+            return baseColor
+        case .baseInverted:
+            return invertedBaseColor
+        }
     }
 }

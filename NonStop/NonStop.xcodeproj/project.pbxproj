@@ -23,6 +23,9 @@
 		99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */; };
 		99745CAD2736CB6F00170F1D /* NSWaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAC2736CB6F00170F1D /* NSWaveShape.swift */; };
 		99745CAF2736E4FD00170F1D /* NSProgressViewStyleEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */; };
+		998439CD2741B4D200772A90 /* NSPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439CC2741B4D200772A90 /* NSPrimaryButton.swift */; };
+		998439CF2741BCBE00772A90 /* NSViewForegroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439CE2741BCBE00772A90 /* NSViewForegroundModifier.swift */; };
+		998439D12741C55300772A90 /* NSViewBackgroundColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439D02741C55300772A90 /* NSViewBackgroundColorModifier.swift */; };
 		99AD3996274187BD003DD9A9 /* NSAddEventSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */; };
 		99B232E4273B24110093C3AC /* NSAddItemTabButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */; };
 		99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E9273B45910093C3AC /* NSPressModifier.swift */; };
@@ -58,6 +61,9 @@
 		99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDotStyleProgressView.swift; sourceTree = "<group>"; };
 		99745CAC2736CB6F00170F1D /* NSWaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWaveShape.swift; sourceTree = "<group>"; };
 		99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSProgressViewStyleEx.swift; sourceTree = "<group>"; };
+		998439CC2741B4D200772A90 /* NSPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPrimaryButton.swift; sourceTree = "<group>"; };
+		998439CE2741BCBE00772A90 /* NSViewForegroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewForegroundModifier.swift; sourceTree = "<group>"; };
+		998439D02741C55300772A90 /* NSViewBackgroundColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewBackgroundColorModifier.swift; sourceTree = "<group>"; };
 		99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEventSheet.swift; sourceTree = "<group>"; };
 		99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddItemTabButon.swift; sourceTree = "<group>"; };
 		99B232E9273B45910093C3AC /* NSPressModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPressModifier.swift; sourceTree = "<group>"; };
@@ -96,6 +102,8 @@
 				99745CAC2736CB6F00170F1D /* NSWaveShape.swift */,
 				99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */,
 				99B232E9273B45910093C3AC /* NSPressModifier.swift */,
+				998439CE2741BCBE00772A90 /* NSViewForegroundModifier.swift */,
+				998439D02741C55300772A90 /* NSViewBackgroundColorModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -156,6 +164,7 @@
 				9970712C273C8B09009EC103 /* NSTabbarButtons.swift */,
 				99548FCA273DCE5600BD477E /* NSTabBarView.swift */,
 				99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */,
+				998439CC2741B4D200772A90 /* NSPrimaryButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,8 +295,10 @@
 				99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */,
 				990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */,
 				990DB5632733380800B62902 /* NSAnimationsViewList.swift in Sources */,
+				998439D12741C55300772A90 /* NSViewBackgroundColorModifier.swift in Sources */,
 				99BAC1CD2731EE0F00536F7B /* NSTimerView.swift in Sources */,
 				99E8FA4E273496B400D8FCA0 /* NSFancyLoaderView.swift in Sources */,
+				998439CD2741B4D200772A90 /* NSPrimaryButton.swift in Sources */,
 				99548FCD273DD8A900BD477E /* SafeAreaInsets+EX.swift in Sources */,
 				99745CA92736B8B800170F1D /* NSLineDotProgressStyle.swift in Sources */,
 				99B232E4273B24110093C3AC /* NSAddItemTabButon.swift in Sources */,
@@ -307,6 +318,7 @@
 				990DB561273337D800B62902 /* NSMainTabsView.swift in Sources */,
 				99745CAF2736E4FD00170F1D /* NSProgressViewStyleEx.swift in Sources */,
 				99745CAD2736CB6F00170F1D /* NSWaveShape.swift in Sources */,
+				998439CF2741BCBE00772A90 /* NSViewForegroundModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

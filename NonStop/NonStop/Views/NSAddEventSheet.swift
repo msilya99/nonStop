@@ -12,7 +12,7 @@ struct NSAddEventSheet: View {
     // MARK: - variables
 
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var themeColors = NSThemeColors()
+    @EnvironmentObject var themeColors: NSThemeColors
 
     @Binding var shouldBeVisible: Bool
 
@@ -22,12 +22,9 @@ struct NSAddEventSheet: View {
         NavigationView {
             VStack {
                 Spacer()
-                Button("Save and add") {
+                NSPrimaryButton(title: "Save and add") {
                     print("Adding new element...")
                 }
-                .font(.title)
-                .padding()
-                .background(Color.red)
             }
             .navigationTitle("Add new event")
             .toolbar {
@@ -40,6 +37,6 @@ struct NSAddEventSheet: View {
                 }
             }
         }
-        .accentColor(themeColors.baseColor)
+        .accentColor(themeColors.getColorByType(.base))
     }
 }

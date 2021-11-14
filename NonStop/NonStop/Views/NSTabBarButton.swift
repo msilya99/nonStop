@@ -11,9 +11,6 @@ struct NSTabBarButton: View {
 
     // MARK: - variables
 
-    @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeColors: NSThemeColors
-
     var title: String
     var imageName: String
     var action: () -> Void
@@ -33,7 +30,7 @@ struct NSTabBarButton: View {
                 Text(title)
             }
             .padding(.top, 8)
-            .foregroundColor(themeColors.baseColor)
+            .foregroundColor(themeColorType: .base)
         }
     }
 }

@@ -34,18 +34,18 @@ struct NSAddItemTabButon: View {
             let minSide = min(geo.size.width, geo.size.height)
             ZStack {
                 Circle()
-                    .stroke(themeColors.invertedBaseColor,
+                    .stroke(themeColors.getColorByType(.baseInverted),
                             lineWidth: strokeWidth)
                     .background(Circle()
-                                    .fill(themeColors.baseColor))
+                                    .fill(themeColors.getColorByType(.base)))
                     .frame(width: minSide)
 
                 Image(systemName: imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: minSide / imageShrinkCoefficient ,
+                    .frame(width: minSide / imageShrinkCoefficient,
                            height: minSide / imageShrinkCoefficient)
-                    .foregroundColor(themeColors.invertedBaseColor)
+                    .foregroundColor(themeColorType: .baseInverted)
             }
         }
         .scaleEffect(isPressed ? 1.2 : 1)

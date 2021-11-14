@@ -12,8 +12,6 @@ struct NSTabBarView: View {
     // MARK: - variables
 
     @Environment(\.safeAreaInsets) private var safeAreaInsets
-    @Environment(\.colorScheme) var colorScheme
-    @StateObject var themeColors = NSThemeColors()
 
     @Binding var selectedItem: Int
     var addItemAction: () -> Void
@@ -46,6 +44,6 @@ struct NSTabBarView: View {
                height: SYS.screenSize.height / 10,
                alignment: .bottom)
         .padding(.bottom, safeAreaInsets.bottom == 0 ? 16 : safeAreaInsets.bottom / 2)
-        .background(themeColors.invertedBaseColor)
+        .backgroundColor(themeColorType: .baseInverted)
     }
 }
