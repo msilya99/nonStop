@@ -13,7 +13,6 @@ struct NSAddEventSheet: View {
 
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var themeColors: NSThemeColors
-
     @Binding var shouldBeVisible: Bool
 
     // MARK: - views
@@ -21,12 +20,13 @@ struct NSAddEventSheet: View {
     var body: some View {
         NavigationView {
             VStack {
+                NSAddEventSheetFormView()
                 Spacer()
                 NSPrimaryButton(title: "Save and add") {
                     print("Adding new element...")
                 }
             }
-            .navigationTitle("Add new event")
+            .navigationTitle("New event")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

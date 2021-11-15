@@ -13,6 +13,7 @@
 		990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */; };
 		9935ED982739C9F400A5A1C1 /* NSTimerCounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */; };
 		9935ED9A2739CC6900A5A1C1 /* View + EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935ED992739CC6800A5A1C1 /* View + EX.swift */; };
+		993A0985274306A600DBD1AA /* NSAddEventSheetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */; };
 		99548FCB273DCE5600BD477E /* NSTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99548FCA273DCE5600BD477E /* NSTabBarView.swift */; };
 		99548FCD273DD8A900BD477E /* SafeAreaInsets+EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99548FCC273DD8A900BD477E /* SafeAreaInsets+EX.swift */; };
 		996726FB273C6F3900998F87 /* NSThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996726FA273C6F3900998F87 /* NSThemeColors.swift */; };
@@ -25,7 +26,6 @@
 		99745CAF2736E4FD00170F1D /* NSProgressViewStyleEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */; };
 		998439CD2741B4D200772A90 /* NSPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439CC2741B4D200772A90 /* NSPrimaryButton.swift */; };
 		998439CF2741BCBE00772A90 /* NSViewThemeColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439CE2741BCBE00772A90 /* NSViewThemeColorModifier.swift */; };
-		998439D32741C79600772A90 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439D22741C79600772A90 /* NSView.swift */; };
 		998439D52741C7EB00772A90 /* Color + EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439D42741C7EB00772A90 /* Color + EX.swift */; };
 		99AD3996274187BD003DD9A9 /* NSAddEventSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */; };
 		99B232E4273B24110093C3AC /* NSAddItemTabButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */; };
@@ -52,6 +52,7 @@
 		990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSGaugeProgressStyle.swift; sourceTree = "<group>"; };
 		9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTimerCounterLabel.swift; sourceTree = "<group>"; };
 		9935ED992739CC6800A5A1C1 /* View + EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + EX.swift"; sourceTree = "<group>"; };
+		993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEventSheetFormView.swift; sourceTree = "<group>"; };
 		99548FCA273DCE5600BD477E /* NSTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTabBarView.swift; sourceTree = "<group>"; };
 		99548FCC273DD8A900BD477E /* SafeAreaInsets+EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SafeAreaInsets+EX.swift"; sourceTree = "<group>"; };
 		996726FA273C6F3900998F87 /* NSThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSThemeColors.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSProgressViewStyleEx.swift; sourceTree = "<group>"; };
 		998439CC2741B4D200772A90 /* NSPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPrimaryButton.swift; sourceTree = "<group>"; };
 		998439CE2741BCBE00772A90 /* NSViewThemeColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewThemeColorModifier.swift; sourceTree = "<group>"; };
-		998439D22741C79600772A90 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
 		998439D42741C7EB00772A90 /* Color + EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + EX.swift"; sourceTree = "<group>"; };
 		99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEventSheet.swift; sourceTree = "<group>"; };
 		99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddItemTabButon.swift; sourceTree = "<group>"; };
@@ -107,6 +107,46 @@
 				998439CE2741BCBE00772A90 /* NSViewThemeColorModifier.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		993A09802743021500DBD1AA /* Add Item Views */ = {
+			isa = PBXGroup;
+			children = (
+				99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */,
+				99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */,
+				993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */,
+			);
+			path = "Add Item Views";
+			sourceTree = "<group>";
+		};
+		993A09812743023900DBD1AA /* Tabbar views */ = {
+			isa = PBXGroup;
+			children = (
+				99672700273C7F5500998F87 /* NSTabBarButton.swift */,
+				9970712C273C8B09009EC103 /* NSTabbarButtons.swift */,
+				99548FCA273DCE5600BD477E /* NSTabBarView.swift */,
+			);
+			path = "Tabbar views";
+			sourceTree = "<group>";
+		};
+		993A09822743025C00DBD1AA /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				998439CC2741B4D200772A90 /* NSPrimaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		993A09832743026D00DBD1AA /* Timer views */ = {
+			isa = PBXGroup;
+			children = (
+				990DB566273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift */,
+				99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */,
+				99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */,
+				9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */,
+				99BAC1CC2731EE0F00536F7B /* NSTimerView.swift */,
+			);
+			path = "Timer views";
 			sourceTree = "<group>";
 		};
 		99BAC1A52731E8B100536F7B = {
@@ -154,19 +194,11 @@
 		99BAC1C42731EB9F00536F7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				993A09832743026D00DBD1AA /* Timer views */,
+				993A09822743025C00DBD1AA /* Buttons */,
+				993A09812743023900DBD1AA /* Tabbar views */,
+				993A09802743021500DBD1AA /* Add Item Views */,
 				990DB5622733380800B62902 /* NSAnimationsViewList.swift */,
-				99BAC1CC2731EE0F00536F7B /* NSTimerView.swift */,
-				9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */,
-				990DB566273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift */,
-				99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */,
-				99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */,
-				99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */,
-				99672700273C7F5500998F87 /* NSTabBarButton.swift */,
-				9970712C273C8B09009EC103 /* NSTabbarButtons.swift */,
-				99548FCA273DCE5600BD477E /* NSTabBarView.swift */,
-				99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */,
-				998439CC2741B4D200772A90 /* NSPrimaryButton.swift */,
-				998439D22741C79600772A90 /* NSView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,12 +324,12 @@
 				99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */,
 				99BAC1CB2731ECC700536F7B /* Date+EX.swift in Sources */,
 				99BAC1BB2731E8B400536F7B /* Persistence.swift in Sources */,
-				998439D32741C79600772A90 /* NSView.swift in Sources */,
 				99AD3996274187BD003DD9A9 /* NSAddEventSheet.swift in Sources */,
 				99BAC1BE2731E8B400536F7B /* NonStop.xcdatamodeld in Sources */,
 				99BAC1B42731E8B100536F7B /* CoreDataExample.swift in Sources */,
 				99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */,
 				990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */,
+				993A0985274306A600DBD1AA /* NSAddEventSheetFormView.swift in Sources */,
 				990DB5632733380800B62902 /* NSAnimationsViewList.swift in Sources */,
 				99BAC1CD2731EE0F00536F7B /* NSTimerView.swift in Sources */,
 				99E8FA4E273496B400D8FCA0 /* NSFancyLoaderView.swift in Sources */,
