@@ -17,6 +17,7 @@ struct NSAddEventSheetFormView: View {
     @State private var toDate: Date = Date().adding(.day, value: 1).adding(.hour, value: 1)
     @State private var eventDescription: String = ""
     @State private var eventColor = Color.pink
+    @State private var selectedIcon = "🤝"
 
     // MARK: - views
 
@@ -44,9 +45,20 @@ struct NSAddEventSheetFormView: View {
 
             Section(header: Text("Customization")) {
                 ColorPicker("Select color", selection: $eventColor, supportsOpacity: false)
+                getEmojiPickerView()
             }
         }
     }
+
+    @ViewBuilder private func getEmojiPickerView() -> some View {
+        HStack {
+            Text("Select icon")
+            Spacer()
+            Text("\(selectedIcon)").font(.title)
+        }.background(NavigationLink("", destination: NSEmojiPicker(selectedEmoji: $selectedIcon)).opacity(0))
+    }
+
+    // MARK: - actions
 
     private func getDatePickerComponents() -> DatePickerComponents {
         return isSpecialDayEvent ? [.date, .hourAndMinute] : .hourAndMinute

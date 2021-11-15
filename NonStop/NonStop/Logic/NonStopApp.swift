@@ -15,9 +15,6 @@ struct NonStopApp: App {
 
     let persistenceController = PersistenceController.shared
     @StateObject var initialTimer = NSInitialTimer()
-    @StateObject var themeColors = NSThemeColors()
-
-    @Environment(\.colorScheme) var colorScheme
 
     // MARK: - app main view
 
@@ -25,7 +22,6 @@ struct NonStopApp: App {
         WindowGroup {
             NSMainTabsView()
                 .environmentObject(initialTimer)
-                .environmentObject(themeColors)
         }
     }
 }

@@ -12,7 +12,6 @@ struct NSAddItemTabButon: View {
     // MARK: - variables
 
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeColors: NSThemeColors
 
     @State var isPressed: Bool = false
 
@@ -34,10 +33,10 @@ struct NSAddItemTabButon: View {
             let minSide = min(geo.size.width, geo.size.height)
             ZStack {
                 Circle()
-                    .stroke(themeColors.getColorByType(.baseInverted),
+                    .stroke(NSThemeColors.sh.getColorByType(.baseInverted),
                             lineWidth: strokeWidth)
                     .background(Circle()
-                                    .fill(themeColors.getColorByType(.base)))
+                                    .fill(NSThemeColors.sh.getColorByType(.base)))
                     .frame(width: minSide)
 
                 Image(systemName: imageName)

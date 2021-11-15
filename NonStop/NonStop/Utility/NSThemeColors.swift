@@ -12,7 +12,9 @@ enum NSThemeColorType {
     case baseInverted
 }
 
-class NSThemeColors: ObservableObject {
+class NSThemeColors {
+
+    static let sh = NSThemeColors()
 
     // MARK: - colors
 
@@ -27,4 +29,6 @@ class NSThemeColors: ObservableObject {
             return invertedBaseColor
         }
     }
+
+    private init() { }
 }

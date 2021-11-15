@@ -14,6 +14,10 @@
 		9935ED982739C9F400A5A1C1 /* NSTimerCounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */; };
 		9935ED9A2739CC6900A5A1C1 /* View + EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935ED992739CC6800A5A1C1 /* View + EX.swift */; };
 		993A0985274306A600DBD1AA /* NSAddEventSheetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */; };
+		993A098A2743161900DBD1AA /* emojis.json in Resources */ = {isa = PBXBuildFile; fileRef = 993A09892743161900DBD1AA /* emojis.json */; };
+		993A098C2743169700DBD1AA /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A098B2743169700DBD1AA /* Emoji.swift */; };
+		993A098E274318D700DBD1AA /* EmojiLoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A098D274318D700DBD1AA /* EmojiLoadingManager.swift */; };
+		993A099027431A5800DBD1AA /* NSEmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A098F27431A5800DBD1AA /* NSEmojiPicker.swift */; };
 		99548FCB273DCE5600BD477E /* NSTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99548FCA273DCE5600BD477E /* NSTabBarView.swift */; };
 		99548FCD273DD8A900BD477E /* SafeAreaInsets+EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99548FCC273DD8A900BD477E /* SafeAreaInsets+EX.swift */; };
 		996726FB273C6F3900998F87 /* NSThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996726FA273C6F3900998F87 /* NSThemeColors.swift */; };
@@ -53,6 +57,10 @@
 		9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTimerCounterLabel.swift; sourceTree = "<group>"; };
 		9935ED992739CC6800A5A1C1 /* View + EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + EX.swift"; sourceTree = "<group>"; };
 		993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEventSheetFormView.swift; sourceTree = "<group>"; };
+		993A09892743161900DBD1AA /* emojis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emojis.json; sourceTree = "<group>"; };
+		993A098B2743169700DBD1AA /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		993A098D274318D700DBD1AA /* EmojiLoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiLoadingManager.swift; sourceTree = "<group>"; };
+		993A098F27431A5800DBD1AA /* NSEmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEmojiPicker.swift; sourceTree = "<group>"; };
 		99548FCA273DCE5600BD477E /* NSTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTabBarView.swift; sourceTree = "<group>"; };
 		99548FCC273DD8A900BD477E /* SafeAreaInsets+EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SafeAreaInsets+EX.swift"; sourceTree = "<group>"; };
 		996726FA273C6F3900998F87 /* NSThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSThemeColors.swift; sourceTree = "<group>"; };
@@ -115,6 +123,7 @@
 				99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */,
 				99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */,
 				993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */,
+				993A098F27431A5800DBD1AA /* NSEmojiPicker.swift */,
 			);
 			path = "Add Item Views";
 			sourceTree = "<group>";
@@ -149,6 +158,15 @@
 			path = "Timer views";
 			sourceTree = "<group>";
 		};
+		993A09862743151900DBD1AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				993A09892743161900DBD1AA /* emojis.json */,
+				99BAC1B52731E8B400536F7B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		99BAC1A52731E8B100536F7B = {
 			isa = PBXGroup;
 			children = (
@@ -175,8 +193,8 @@
 				99BAC1C62731EBB200536F7B /* ViewModels */,
 				99BAC1C52731EBA800536F7B /* Models */,
 				99BAC1C42731EB9F00536F7B /* Views */,
+				993A09862743151900DBD1AA /* Resources */,
 				99BAC1B32731E8B100536F7B /* CoreDataExample.swift */,
-				99BAC1B52731E8B400536F7B /* Assets.xcassets */,
 				99BAC1BC2731E8B400536F7B /* NonStop.xcdatamodeld */,
 				99BAC1B72731E8B400536F7B /* Preview Content */,
 			);
@@ -206,6 +224,8 @@
 		99BAC1C52731EBA800536F7B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				993A098B2743169700DBD1AA /* Emoji.swift */,
+				993A098D274318D700DBD1AA /* EmojiLoadingManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993A098A2743161900DBD1AA /* emojis.json in Resources */,
 				99BAC1B92731E8B400536F7B /* Preview Assets.xcassets in Resources */,
 				99BAC1B62731E8B400536F7B /* Assets.xcassets in Resources */,
 			);
@@ -330,8 +351,10 @@
 				99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */,
 				990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */,
 				993A0985274306A600DBD1AA /* NSAddEventSheetFormView.swift in Sources */,
+				993A098E274318D700DBD1AA /* EmojiLoadingManager.swift in Sources */,
 				990DB5632733380800B62902 /* NSAnimationsViewList.swift in Sources */,
 				99BAC1CD2731EE0F00536F7B /* NSTimerView.swift in Sources */,
+				993A099027431A5800DBD1AA /* NSEmojiPicker.swift in Sources */,
 				99E8FA4E273496B400D8FCA0 /* NSFancyLoaderView.swift in Sources */,
 				998439CD2741B4D200772A90 /* NSPrimaryButton.swift in Sources */,
 				99548FCD273DD8A900BD477E /* SafeAreaInsets+EX.swift in Sources */,
@@ -346,6 +369,7 @@
 				9935ED9A2739CC6900A5A1C1 /* View + EX.swift in Sources */,
 				99BAC1B22731E8B100536F7B /* NonStopApp.swift in Sources */,
 				99BAC1D22731F0D100536F7B /* AppLang.swift in Sources */,
+				993A098C2743169700DBD1AA /* Emoji.swift in Sources */,
 				99548FCB273DCE5600BD477E /* NSTabBarView.swift in Sources */,
 				998439D52741C7EB00772A90 /* Color + EX.swift in Sources */,
 				996726FD273C794800998F87 /* AppTheme.swift in Sources */,

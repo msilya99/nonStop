@@ -17,7 +17,6 @@ struct NSViewThemeColorModifier: ViewModifier {
     // MARK: - variables
 
     @Environment(\.colorScheme) private var colorScheme
-    @EnvironmentObject private var themeColors: NSThemeColors
 
     var type: NSViewThemeType
     var themeColor: Color?
@@ -37,7 +36,7 @@ struct NSViewThemeColorModifier: ViewModifier {
     // MARK: - get color by theme
 
     private func getThemeColor(colorType: NSThemeColorType) -> Color {
-        return themeColors.getColorByType(colorType)
+        return NSThemeColors.sh.getColorByType(colorType)
     }
 
     @ViewBuilder private func getBackgroundThemeView(content: Content) -> some View {

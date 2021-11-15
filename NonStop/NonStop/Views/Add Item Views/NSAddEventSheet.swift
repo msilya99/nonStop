@@ -12,7 +12,6 @@ struct NSAddEventSheet: View {
     // MARK: - variables
 
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var themeColors: NSThemeColors
     @Binding var shouldBeVisible: Bool
 
     // MARK: - views
@@ -37,6 +36,6 @@ struct NSAddEventSheet: View {
                 }
             }
         }
-        .accentColor(themeColors.getColorByType(.base))
+        .accentColor(NSThemeColors.sh.getColorByType(.base))
     }
 }
