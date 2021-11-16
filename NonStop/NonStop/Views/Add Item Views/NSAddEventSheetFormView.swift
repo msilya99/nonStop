@@ -15,6 +15,7 @@ struct NSAddEventSheetFormView: View {
     @State private var isSpecialDayEvent = false
     @State private var fromDate: Date = Date().adding(.day, value: 1)
     @State private var toDate: Date = Date().adding(.day, value: 1).adding(.hour, value: 1)
+    @State private var isNeedDescription = false
     @State private var eventDescription: String = ""
     @State private var eventColor = Color.pink
     @State private var selectedIcon = "🤝"
@@ -39,8 +40,13 @@ struct NSAddEventSheetFormView: View {
             }
 
             Section(header: Text("You can add description to event")) {
-                TextEditor(text: $eventDescription)
-                    .frame(maxHeight: 150)
+                Toggle("Add description?",
+                       isOn: $isNeedDescription.animation())
+
+                if isNeedDescription {
+                    NSTextEditor(text: $eventDescription)
+                        .frame(maxHeight: 150)
+                }
             }
 
             Section(header: Text("Customization")) {
