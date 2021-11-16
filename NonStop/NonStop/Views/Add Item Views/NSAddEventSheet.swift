@@ -11,6 +11,8 @@ struct NSAddEventSheet: View {
 
     // MARK: - variables
 
+    @StateObject private var addEventModel = NSAddEventViewModel()
+    @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.colorScheme) var colorScheme
     @Binding var shouldBeVisible: Bool
 
@@ -19,9 +21,10 @@ struct NSAddEventSheet: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                NSAddEventSheetFormView()
+                NSAddEventSheetFormView(addEventModel: addEventModel)
                 NSPrimaryButton(title: "Save and add") {
-                    print("Adding new element...")
+                    guard let model = addEventModel.getModel() else { return }
+                    addEvent(model: model)
                 }
             }
             .navigationTitle("New event")
@@ -36,5 +39,25 @@ struct NSAddEventSheet: View {
             }
         }
         .accentColor(NSThemeColors.sh.getColorByType(.base))
+    }
+
+    //MARK: - saving event to core data
+
+    private func addEvent(model: NSEventModel) {
+        withAnimation {
+            let newItem = Event(context: viewContext)
+            newItem.eventName = model.name
+            newItem.fromDate = model.fromDate
+            newItem.toDate = model.toDate
+            newItem.isSpecialDateEvent = model.isSpecialDateEvent
+            newItem.eventDescription = model.eventDescription
+            newItem.color = model.color
+            newItem.selectedIcon = model.selectedIcon
+
+            if viewContext.hasChanges {
+                try? viewContext.save()
+            }
+            shouldBeVisible = false
+        }
     }
 }

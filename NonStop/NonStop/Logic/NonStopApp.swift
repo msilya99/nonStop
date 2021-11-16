@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 @main
 struct NonStopApp: App {
@@ -22,6 +21,7 @@ struct NonStopApp: App {
         WindowGroup {
             NSMainTabsView()
                 .environmentObject(initialTimer)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
