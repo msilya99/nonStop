@@ -18,21 +18,20 @@ struct NSAddEventSheet: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack(alignment: .bottom) {
                 NSAddEventSheetFormView()
+                NSPrimaryButton(title: "Save and add") {
+                    print("Adding new element...")
+                }
             }
             .navigationTitle("New event")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button ("Cancel") {
-                        shouldBeVisible = false
-                    }
-                }
-
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
+                    Button {
                         shouldBeVisible = false
-                    }.disabled(true)
+                    } label: {
+                        Label("Close", systemImage: "xmark.circle")
+                    }
                 }
             }
         }
