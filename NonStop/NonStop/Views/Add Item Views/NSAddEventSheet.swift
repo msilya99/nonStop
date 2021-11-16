@@ -20,19 +20,19 @@ struct NSAddEventSheet: View {
         NavigationView {
             VStack {
                 NSAddEventSheetFormView()
-                Spacer()
-                NSPrimaryButton(title: "Save and add") {
-                    print("Adding new element...")
-                }
             }
             .navigationTitle("New event")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button ("Cancel") {
                         shouldBeVisible = false
-                    } label: {
-                        Label("Close", systemImage: "xmark.circle")
                     }
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save") {
+                        shouldBeVisible = false
+                    }.disabled(true)
                 }
             }
         }
