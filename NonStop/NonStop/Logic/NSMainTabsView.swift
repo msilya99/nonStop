@@ -25,7 +25,7 @@ struct NSMainTabsView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedItem) {
-                NSAnimationsViewList()
+                NSEventsList()
                     .tag(1)
                 NSTimerView()
                     .tag(2)

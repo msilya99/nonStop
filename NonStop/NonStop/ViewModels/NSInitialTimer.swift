@@ -64,17 +64,7 @@ class NSInitialTimer: ObservableObject {
     }
 
     func getTimeRemainString() -> String {
-        let date = Date(timeIntervalSinceReferenceDate: timeRemain)
-        var dateFormat: String
-        switch (date.hour, date.minute, date.second) {
-        case (let hour, let minute , _) where hour == 0 && minute > 0:
-            dateFormat = DateTimeFormat.minutesAndSeconds
-        case (let hour, let minute , let second) where hour == 0 && minute == 0 && second >= 0:
-            dateFormat = DateTimeFormat.seconds
-        default:
-            dateFormat = DateTimeFormat.fullTime
-        }
-        return date.toString(format: dateFormat)
+        return Date.getIntervalValueString(timeRemain)
     }
 
     func getTimeRemainRatio() -> CGFloat {

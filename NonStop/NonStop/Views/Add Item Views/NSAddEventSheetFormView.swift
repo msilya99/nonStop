@@ -33,7 +33,7 @@ struct NSAddEventSheetFormView: View {
 
                 DatePicker("Ends",
                            selection: $addEventModel.toDate,
-                           in: addEventModel.fromDate.adding(.minute, value: 5)...,
+                           in: addEventModel.fromDate.adding(.minute, value: 5)...addEventModel.fromDate.adding(.day, value: 1),
                            displayedComponents: getDatePickerComponents())
             }
 
@@ -52,6 +52,7 @@ struct NSAddEventSheetFormView: View {
                 getEmojiPickerView()
             }
         }
+        .environment(\.locale, Locale.init(identifier: SYS.langCode.rawValue))
     }
 
     @ViewBuilder private func getEmojiPickerView() -> some View {

@@ -38,7 +38,6 @@
 		99B232E4273B24110093C3AC /* NSAddItemTabButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */; };
 		99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E9273B45910093C3AC /* NSPressModifier.swift */; };
 		99BAC1B22731E8B100536F7B /* NonStopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1B12731E8B100536F7B /* NonStopApp.swift */; };
-		99BAC1B42731E8B100536F7B /* CoreDataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1B32731E8B100536F7B /* CoreDataExample.swift */; };
 		99BAC1B62731E8B400536F7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99BAC1B52731E8B400536F7B /* Assets.xcassets */; };
 		99BAC1B92731E8B400536F7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99BAC1B82731E8B400536F7B /* Preview Assets.xcassets */; };
 		99BAC1BB2731E8B400536F7B /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1BA2731E8B400536F7B /* Persistence.swift */; };
@@ -49,6 +48,8 @@
 		99BAC1D02731EFEF00536F7B /* DateTimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1CF2731EFEF00536F7B /* DateTimeFormat.swift */; };
 		99BAC1D22731F0D100536F7B /* AppLang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1D12731F0D100536F7B /* AppLang.swift */; };
 		99BAC1D52731F16B00536F7B /* NSSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1D42731F16B00536F7B /* NSSystem.swift */; };
+		99DE0B29274ADC7F00E9DA34 /* NSEventsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DE0B28274ADC7F00E9DA34 /* NSEventsList.swift */; };
+		99DE0B2B274AEEA500E9DA34 /* NSEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DE0B2A274AEEA500E9DA34 /* NSEventView.swift */; };
 		99E8FA4E273496B400D8FCA0 /* NSFancyLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +86,6 @@
 		99B232E9273B45910093C3AC /* NSPressModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPressModifier.swift; sourceTree = "<group>"; };
 		99BAC1AE2731E8B100536F7B /* NonStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NonStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99BAC1B12731E8B100536F7B /* NonStopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonStopApp.swift; sourceTree = "<group>"; };
-		99BAC1B32731E8B100536F7B /* CoreDataExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExample.swift; sourceTree = "<group>"; };
 		99BAC1B52731E8B400536F7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99BAC1B82731E8B400536F7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99BAC1BA2731E8B400536F7B /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -96,6 +96,8 @@
 		99BAC1CF2731EFEF00536F7B /* DateTimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeFormat.swift; sourceTree = "<group>"; };
 		99BAC1D12731F0D100536F7B /* AppLang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLang.swift; sourceTree = "<group>"; };
 		99BAC1D42731F16B00536F7B /* NSSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSystem.swift; sourceTree = "<group>"; };
+		99DE0B28274ADC7F00E9DA34 /* NSEventsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEventsList.swift; sourceTree = "<group>"; };
+		99DE0B2A274AEEA500E9DA34 /* NSEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEventView.swift; sourceTree = "<group>"; };
 		99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFancyLoaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,7 +203,6 @@
 				99BAC1C52731EBA800536F7B /* Models */,
 				99BAC1C42731EB9F00536F7B /* Views */,
 				993A09862743151900DBD1AA /* Resources */,
-				99BAC1B32731E8B100536F7B /* CoreDataExample.swift */,
 				99BAC1BC2731E8B400536F7B /* NonStop.xcdatamodeld */,
 				99BAC1B72731E8B400536F7B /* Preview Content */,
 			);
@@ -219,6 +220,7 @@
 		99BAC1C42731EB9F00536F7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				99DE0B27274ADC6000E9DA34 /* Events list */,
 				993A09832743026D00DBD1AA /* Timer views */,
 				993A09822743025C00DBD1AA /* Buttons */,
 				993A09812743023900DBD1AA /* Tabbar views */,
@@ -278,6 +280,15 @@
 				99BAC1D42731F16B00536F7B /* NSSystem.swift */,
 			);
 			path = Logic;
+			sourceTree = "<group>";
+		};
+		99DE0B27274ADC6000E9DA34 /* Events list */ = {
+			isa = PBXGroup;
+			children = (
+				99DE0B28274ADC7F00E9DA34 /* NSEventsList.swift */,
+				99DE0B2A274AEEA500E9DA34 /* NSEventView.swift */,
+			);
+			path = "Events list";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,10 +367,10 @@
 				99BAC1BB2731E8B400536F7B /* Persistence.swift in Sources */,
 				99AD3996274187BD003DD9A9 /* NSAddEventSheet.swift in Sources */,
 				99BAC1BE2731E8B400536F7B /* NonStop.xcdatamodeld in Sources */,
-				99BAC1B42731E8B100536F7B /* CoreDataExample.swift in Sources */,
 				99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */,
 				990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */,
 				993A0985274306A600DBD1AA /* NSAddEventSheetFormView.swift in Sources */,
+				99DE0B2B274AEEA500E9DA34 /* NSEventView.swift in Sources */,
 				993A098E274318D700DBD1AA /* EmojiLoadingManager.swift in Sources */,
 				990DB5632733380800B62902 /* NSAnimationsViewList.swift in Sources */,
 				99BAC1CD2731EE0F00536F7B /* NSTimerView.swift in Sources */,
@@ -371,6 +382,7 @@
 				99B232E4273B24110093C3AC /* NSAddItemTabButon.swift in Sources */,
 				996726FB273C6F3900998F87 /* NSThemeColors.swift in Sources */,
 				9970712D273C8B09009EC103 /* NSTabbarButtons.swift in Sources */,
+				99DE0B29274ADC7F00E9DA34 /* NSEventsList.swift in Sources */,
 				990DB567273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift in Sources */,
 				99672701273C7F5500998F87 /* NSTabBarButton.swift in Sources */,
 				99BAC1D02731EFEF00536F7B /* DateTimeFormat.swift in Sources */,

@@ -30,7 +30,7 @@ class NSAddEventViewModel: ObservableObject {
             return nil
         }
 
-        return NSEventModel(name: eventName,
+        return NSEventModel(eventName: eventName,
                             fromDate: fromDate,
                             toDate: toDate,
                             isSpecialDateEvent: isSpecialDateEvent,

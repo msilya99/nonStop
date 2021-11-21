@@ -113,7 +113,7 @@ extension Date {
                   withCurrentLocale: Bool = true,
                   truncateLeadingZero: Bool = false) -> String {
         let formatter = DateFormatter()
-        let timeZone = TimeZone(abbreviation: timeZoneAbbreviation ?? "") ?? SYS.timeZone
+        let timeZone = TimeZone(abbreviation: timeZoneAbbreviation ?? "") ?? Calendar.current.timeZone
         formatter.timeZone = timeZone
         formatter.dateFormat = format
         if withCurrentLocale {
@@ -139,7 +139,39 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 
+    func startDay() -> Date {
+        return Calendar.current.startOfDay(for: self)
+    }
+
+    func endDay() -> Date {
+        return startDay()
+            .adding(.day, value: 1)
+            .adding(.second, value: -1)
+    }
+
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
         return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+
+    static func getIntervalValueString(_ timeInterval: TimeInterval) -> String {
+        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
+        var dateFormat: String
+        switch (date.hour, date.minute, date.second) {
+        case (let hour, let minute , _) where hour == 0 && minute > 0:
+            dateFormat = DateTimeFormat.minutesAndSeconds
+        case (let hour, let minute , let second) where hour == 0 && minute == 0 && second >= 0:
+            dateFormat = DateTimeFormat.seconds
+        default:
+            dateFormat = DateTimeFormat.fullTime
+        }
+        return date.toString(format: dateFormat,
+                             timeZoneAbbreviation: DateTimeFormat.defaultTimeZone)
+    }
+
+    static func getTimeStringForInterval(_ timeInterval: TimeInterval,
+                                         format: String) -> String {
+        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
+        return date.toString(format: format,
+                             timeZoneAbbreviation: DateTimeFormat.defaultTimeZone)
     }
 }

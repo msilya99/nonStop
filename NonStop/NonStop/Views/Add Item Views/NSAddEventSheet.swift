@@ -46,13 +46,14 @@ struct NSAddEventSheet: View {
     private func addEvent(model: NSEventModel) {
         withAnimation {
             let newItem = Event(context: viewContext)
-            newItem.eventName = model.name
+            newItem.eventName = model.eventName
             newItem.fromDate = model.fromDate
             newItem.toDate = model.toDate
             newItem.isSpecialDateEvent = model.isSpecialDateEvent
             newItem.eventDescription = model.eventDescription
             newItem.color = model.color
             newItem.selectedIcon = model.selectedIcon
+            newItem.id = UUID()
 
             if viewContext.hasChanges {
                 try? viewContext.save()
