@@ -24,9 +24,9 @@ struct NSEventView: View {
                 Text(event.eventName)
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(themeColorType: .baseInverted)
+                    .foregroundColor(getTitleColor())
                 Text(getIntervalValueString())
-                    .foregroundColor(themeColorType: .base02Inverted)
+                    .foregroundColor(getDescriptionColor())
             }
             Spacer()
             VStack(alignment: .leading) {
@@ -40,16 +40,17 @@ struct NSEventView: View {
                         Text(getTimeString(event.toDate))
                     }
                 }
-                .foregroundColor(themeColorType: .base02Inverted)
+                .foregroundColor(getDescriptionColor())
             }
         }
         .padding()
-        .backgroundColor(themeColorType: .base)
+        .background(getEventColor())
         .clipShape(RoundedRectangle(cornerRadius: 16))
+        .shadow(color: NSThemeColors.sh.getColorByType(.base02), radius: 1, x: 1, y: 1)
         .padding(.horizontal, 16)
     }
 
-    // MARK: - actions
+    // MARK: - getter actions
 
     private func getTimeString(_ date: Date?) -> String {
         return date?.toString(format: DateTimeFormat.hoursAndMinutes,
@@ -63,5 +64,21 @@ struct NSEventView: View {
 
         return Date.getTimeStringForInterval(to - from,
                                              format: DateTimeFormat.hoursAndMinutes)
+    }
+
+    private func getEventColor() -> Color {
+        guard let colorDate = event.color,
+              let color = Color.color(withData: colorDate) else {
+                  return NSThemeColors.sh.getColorByType(.base)
+              }
+        return color
+    }
+
+    private func getTitleColor() -> Color {
+        NSBaseColors.sh.getColor(.base, isLightColor: getEventColor().isLightColor())
+    }
+
+    private func getDescriptionColor() -> Color {
+        NSBaseColors.sh.getColor(.base02, isLightColor: getEventColor().isLightColor())
     }
 }

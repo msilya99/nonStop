@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NSEventsList: View {
+
+    // MARK: - variables
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -15,16 +17,31 @@ struct NSEventsList: View {
         animation: .default)
     private var events: FetchedResults<Event>
 
+    // MARK: - body views
+
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack(spacing: 16) {
+//            List {
                     ForEach(events) { event in
                         NSEventView(event: NSEventModel(event: event))
                     }
+//                    .onDelete(perform: deleteItems)
                 }
             }
             .navigationBarTitle(Text("Events"))
+        }
+    }
+
+    // MARK: - actions
+
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { events[$0] }.forEach(viewContext.delete)
+            if viewContext.hasChanges {
+                try? viewContext.save()
+            }
         }
     }
 }

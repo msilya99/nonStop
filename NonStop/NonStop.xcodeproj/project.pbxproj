@@ -21,7 +21,6 @@
 		99548FCB273DCE5600BD477E /* NSTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99548FCA273DCE5600BD477E /* NSTabBarView.swift */; };
 		99548FCD273DD8A900BD477E /* SafeAreaInsets+EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99548FCC273DD8A900BD477E /* SafeAreaInsets+EX.swift */; };
 		996726FB273C6F3900998F87 /* NSThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996726FA273C6F3900998F87 /* NSThemeColors.swift */; };
-		996726FD273C794800998F87 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996726FC273C794800998F87 /* AppTheme.swift */; };
 		99672701273C7F5500998F87 /* NSTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99672700273C7F5500998F87 /* NSTabBarButton.swift */; };
 		996E414B2744569800BC3902 /* NSTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996E414A2744569700BC3902 /* NSTextEditor.swift */; };
 		996E414D27445FDB00BC3902 /* NSEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996E414C27445FDB00BC3902 /* NSEventModel.swift */; };
@@ -51,6 +50,7 @@
 		99DE0B29274ADC7F00E9DA34 /* NSEventsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DE0B28274ADC7F00E9DA34 /* NSEventsList.swift */; };
 		99DE0B2B274AEEA500E9DA34 /* NSEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DE0B2A274AEEA500E9DA34 /* NSEventView.swift */; };
 		99E8FA4E273496B400D8FCA0 /* NSFancyLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */; };
+		99EC0363274C4433000B3E1D /* NSBaseColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC0362274C4433000B3E1D /* NSBaseColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +68,6 @@
 		99548FCA273DCE5600BD477E /* NSTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTabBarView.swift; sourceTree = "<group>"; };
 		99548FCC273DD8A900BD477E /* SafeAreaInsets+EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SafeAreaInsets+EX.swift"; sourceTree = "<group>"; };
 		996726FA273C6F3900998F87 /* NSThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSThemeColors.swift; sourceTree = "<group>"; };
-		996726FC273C794800998F87 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		99672700273C7F5500998F87 /* NSTabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTabBarButton.swift; sourceTree = "<group>"; };
 		996E414A2744569700BC3902 /* NSTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTextEditor.swift; sourceTree = "<group>"; };
 		996E414C27445FDB00BC3902 /* NSEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEventModel.swift; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		99DE0B28274ADC7F00E9DA34 /* NSEventsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEventsList.swift; sourceTree = "<group>"; };
 		99DE0B2A274AEEA500E9DA34 /* NSEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSEventView.swift; sourceTree = "<group>"; };
 		99E8FA4D273496B400D8FCA0 /* NSFancyLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFancyLoaderView.swift; sourceTree = "<group>"; };
+		99EC0362274C4433000B3E1D /* NSBaseColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSBaseColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +267,7 @@
 				99BAC1CF2731EFEF00536F7B /* DateTimeFormat.swift */,
 				99BAC1D12731F0D100536F7B /* AppLang.swift */,
 				996726FA273C6F3900998F87 /* NSThemeColors.swift */,
-				996726FC273C794800998F87 /* AppTheme.swift */,
+				99EC0362274C4433000B3E1D /* NSBaseColors.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -381,6 +381,7 @@
 				99745CA92736B8B800170F1D /* NSLineDotProgressStyle.swift in Sources */,
 				99B232E4273B24110093C3AC /* NSAddItemTabButon.swift in Sources */,
 				996726FB273C6F3900998F87 /* NSThemeColors.swift in Sources */,
+				99EC0363274C4433000B3E1D /* NSBaseColors.swift in Sources */,
 				9970712D273C8B09009EC103 /* NSTabbarButtons.swift in Sources */,
 				99DE0B29274ADC7F00E9DA34 /* NSEventsList.swift in Sources */,
 				990DB567273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift in Sources */,
@@ -393,7 +394,6 @@
 				993A098C2743169700DBD1AA /* Emoji.swift in Sources */,
 				99548FCB273DCE5600BD477E /* NSTabBarView.swift in Sources */,
 				998439D52741C7EB00772A90 /* Color + EX.swift in Sources */,
-				996726FD273C794800998F87 /* AppTheme.swift in Sources */,
 				9935ED982739C9F400A5A1C1 /* NSTimerCounterLabel.swift in Sources */,
 				996E414B2744569800BC3902 /* NSTextEditor.swift in Sources */,
 				99BAC1D52731F16B00536F7B /* NSSystem.swift in Sources */,

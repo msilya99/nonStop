@@ -33,6 +33,22 @@ extension UIColor {
 
         return (red, green, blue, alpha)
     }
+
+    /// Check if the color is light or dark, as defined by the injected lightness threshold.
+    func isLight(threshold: Float = 0.7) -> Bool? {
+        let originalCGColor: CGColor = self.cgColor
+        // Now we need to convert it to the RGB colorspace. UIColor.white / UIColor.black are greyscale and not RGB.
+        // If you don't do this then you will crash when accessing components index 2 below when evaluating greyscale colors.
+        let RGBCGColor: CGColor? = originalCGColor
+            .converted(to: CGColorSpaceCreateDeviceRGB(),
+                       intent: .defaultIntent, options: nil)
+        guard let components: [CGFloat] = RGBCGColor?.components,
+              components.count >= 3 else {
+                  return nil
+              }
+        let brightness: Float = Float(((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000)
+        return (brightness > threshold)
+    }
 }
 
 extension Color {
@@ -42,12 +58,19 @@ extension Color {
     }
 
     func encode() -> Data? {
-        let object = UIColor(self)
+        var color = self
+        let themeColorType = NSThemeColors.sh.getTypeByColor(self)
+        if themeColorType != .unknown {
+            color = NSBaseColors.sh.getColor(themeColorType,
+                                             isLightColor:  UIScreen.main.traitCollection.userInterfaceStyle == .light)
+        }
+        
+        let object = UIColor(color)
         return try? NSKeyedArchiver.archivedData(withRootObject: object,
                                                  requiringSecureCoding: true)
     }
 
-    func color(withData data: Data) -> Color? {
+    static func color(withData data: Data) -> Color? {
         guard let uiColor = try? NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: data) else { return nil}
         let colorComponents = uiColor.rgba
         return Color(.sRGBLinear,
@@ -56,6 +79,9 @@ extension Color {
                      blue: colorComponents.blue,
                      opacity: colorComponents.alpha)
     }
+
+    func isLightColor() -> Bool {
+        guard let cgColor = self.cgColor else { return false }
+        return UIColor(cgColor: cgColor).isLight() ?? false
+    }
 }
-
-

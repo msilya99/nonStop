@@ -18,7 +18,7 @@ class NSAddEventViewModel: ObservableObject {
     @Published var toDate: Date = Date().adding(.day, value: 1).adding(.hour, value: 1)
     @Published var isNeedDescription = false
     @Published var eventDescription: String = ""
-    @Published var eventColor = Color.pink
+    @Published var eventColor = NSThemeColors.sh.getColorByType(.base)
     @Published var selectedIcon = "🤝"
     @Published var showEventAlert: Bool = false
 
