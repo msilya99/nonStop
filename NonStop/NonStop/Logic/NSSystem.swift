@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import SwiftUI
 
 let SYS = NSSystem()
 
 class NSSystem {
 
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+
     // MARK: sizes
 
     let screenSize = UIScreen.main.bounds.size
+
+    var tabbarHeight: CGFloat { screenSize.height / 10 }
+    var safeAreaBottomInset: CGFloat { safeAreaInsets.bottom }
 
     // MARK: language
 

@@ -39,7 +39,8 @@ struct NSViewThemeColorModifier: ViewModifier {
         return NSThemeColors.sh.getColorByType(colorType)
     }
 
-    @ViewBuilder private func getBackgroundThemeView(content: Content) -> some View {
+    @ViewBuilder
+    private func getBackgroundThemeView(content: Content) -> some View {
         if let themeColor = themeColor {
             content.background(themeColor)
         } else if let themeColorType = themeColorType {
@@ -49,7 +50,8 @@ struct NSViewThemeColorModifier: ViewModifier {
         }
     }
 
-    @ViewBuilder private func getForegroundThemeView(content: Content) -> some View {
+    @ViewBuilder
+    private func getForegroundThemeView(content: Content) -> some View {
         if let themeColor = themeColor {
             content.foregroundColor(themeColor)
         } else if let themeColorType = themeColorType {

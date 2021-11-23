@@ -11,8 +11,6 @@ struct NSTabBarView: View {
 
     // MARK: - variables
 
-    @Environment(\.safeAreaInsets) private var safeAreaInsets
-
     @Binding var selectedItem: Int
     var addItemAction: () -> Void
 
@@ -38,12 +36,12 @@ struct NSTabBarView: View {
 
                 Spacer()
             }
-            .padding(.bottom, safeAreaInsets.bottom == 0 ? 0 : safeAreaInsets.bottom / 2)
+            .padding(.bottom, SYS.safeAreaBottomInset == 0 ? 0 : SYS.safeAreaBottomInset / 2)
         }
         .frame(width: .infinity,
-               height: SYS.screenSize.height / 10,
+               height: SYS.tabbarHeight,
                alignment: .bottom)
-        .padding(.bottom, safeAreaInsets.bottom == 0 ? 16 : safeAreaInsets.bottom / 2)
+        .padding(.bottom, SYS.safeAreaBottomInset == 0 ? 16 : SYS.safeAreaBottomInset / 2)
         .backgroundColor(themeColorType: .baseInverted)
     }
 }

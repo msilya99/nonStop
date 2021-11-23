@@ -168,6 +168,16 @@ extension Date {
                              timeZoneAbbreviation: DateTimeFormat.defaultTimeZone)
     }
 
+    static func getDetailedIntervalValueString(_ timeInterval: TimeInterval,
+                                               withSeconds: Bool = false) -> String {
+        let date = Date(timeIntervalSinceReferenceDate: timeInterval)
+        var dateString = ""
+        if date.hour > 0 { dateString += "\(date.hour) h" }
+        if date.minute > 0 { dateString += " \(date.minute) min" }
+        if withSeconds, date.second > 0 { dateString += " \(date.second) sec" }
+        return dateString
+    }
+
     static func getTimeStringForInterval(_ timeInterval: TimeInterval,
                                          format: String) -> String {
         let date = Date(timeIntervalSinceReferenceDate: timeInterval)

@@ -55,7 +55,8 @@ struct NSAddEventSheetFormView: View {
         .environment(\.locale, Locale.init(identifier: SYS.langCode.rawValue))
     }
 
-    @ViewBuilder private func getEmojiPickerView() -> some View {
+    @ViewBuilder
+    private func getEmojiPickerView() -> some View {
         HStack {
             Text("Select icon")
             Spacer()

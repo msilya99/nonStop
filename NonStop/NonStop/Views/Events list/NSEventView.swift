@@ -12,36 +12,33 @@ struct NSEventView: View {
     // MARK: - variables
 
     var event: NSEventModel
+    var editEventAction: (() -> Void)
+    var deleteEventAction: (() -> Void)
+    @State private var showEditingMenu: Bool = false
 
     // MARK: - views body
 
     var body: some View {
-        HStack(alignment: .center) {
-            Text(event.selectedIcon)
-                .font(.system(size: 48))
+        ZStack(alignment: .topTrailing) {
+            HStack(alignment: .center) {
+                Text(event.selectedIcon)
+                    .font(.system(size: 48))
 
-            VStack(alignment: .leading) {
-                Text(event.eventName)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(getTitleColor())
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(event.eventName)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(getMainColor())
+                    Text(getTimeRangeString())
+                        .foregroundColor(getDescriptionColor())
+                }
+                Spacer()
+
                 Text(getIntervalValueString())
                     .foregroundColor(getDescriptionColor())
             }
-            Spacer()
-            VStack(alignment: .leading) {
-                HStack {
-                    VStack(alignment: .trailing) {
-                        Text("From:")
-                        Text("To:")
-                    }
-                    VStack(alignment: .trailing) {
-                        Text(getTimeString(event.fromDate))
-                        Text(getTimeString(event.toDate))
-                    }
-                }
-                .foregroundColor(getDescriptionColor())
-            }
+
+            getMenuView()
         }
         .padding()
         .background(getEventColor())
@@ -50,20 +47,45 @@ struct NSEventView: View {
         .padding(.horizontal, 16)
     }
 
-    // MARK: - getter actions
+    // MARK: - create menu view
 
-    private func getTimeString(_ date: Date?) -> String {
-        return date?.toString(format: DateTimeFormat.hoursAndMinutes,
-                              truncateLeadingZero: true) ?? ""
+    @ViewBuilder
+    private func getMenuView() -> some View {
+        Menu {
+            Button() {
+                editEventAction()
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+            Button() {
+                deleteEventAction()
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        } label: {
+            Image(systemName: "ellipsis")
+                .foregroundColor(getMainColor())
+        }
     }
 
-    private func getIntervalValueString() -> String {
-        guard let from = event.fromDate, let to = event.toDate else {
+    // MARK: - getter actions
+
+    private func getTimeRangeString() -> String {
+        guard let fromDate = event.fromDate, let toDate = event.toDate else {
             return ""
         }
 
-        return Date.getTimeStringForInterval(to - from,
-                                             format: DateTimeFormat.hoursAndMinutes)
+        return Date.rangeFormat(start: fromDate,
+                                end: toDate,
+                                format: DateTimeFormat.hoursAndMinutes)
+    }
+
+    private func getIntervalValueString() -> String {
+        guard let fromDate = event.fromDate, let toDate = event.toDate else {
+            return ""
+        }
+
+        return Date.getDetailedIntervalValueString(toDate - fromDate)
     }
 
     private func getEventColor() -> Color {
@@ -74,7 +96,7 @@ struct NSEventView: View {
         return color
     }
 
-    private func getTitleColor() -> Color {
+    private func getMainColor() -> Color {
         NSBaseColors.sh.getColor(.base, isLightColor: getEventColor().isLightColor())
     }
 

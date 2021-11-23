@@ -21,24 +21,27 @@ struct NSEventsList: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 16) {
-//            List {
                     ForEach(events) { event in
-                        NSEventView(event: NSEventModel(event: event))
+                        NSEventView(event: NSEventModel(event: event),
+                                    editEventAction: { print("Event editing") },
+                                    deleteEventAction: { [weak event] in
+                            deleteEvent(event) })
                     }
-//                    .onDelete(perform: deleteItems)
                 }
+                .padding(.bottom, SYS.tabbarHeight)
             }
             .navigationBarTitle(Text("Events"))
         }
     }
 
-    // MARK: - actions
+    // MARK: - delete event action
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { events[$0] }.forEach(viewContext.delete)
+    private func deleteEvent(_ event: FetchedResults<Event>.Element?) {
+        guard let event = event else { return }
+        withAnimation(.linear) {
+            viewContext.delete(event)
             if viewContext.hasChanges {
                 try? viewContext.save()
             }
