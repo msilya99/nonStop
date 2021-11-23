@@ -18,13 +18,17 @@ struct NSPrimaryButton: View {
     // MARk: - views
 
     var body: some View {
-        Button(title) { action() }
-        .frame(maxWidth: .infinity)
-        .font(.title3)
-        .padding()
-        .backgroundColor(themeColorType: .base)
-        .clipShape(Capsule())
-        .padding(.horizontal, horizontalPadding)
-        .foregroundColor(themeColorType: .baseInverted)
+        Button {
+            action()
+        } label: {
+            Text(title)
+                .frame(maxWidth: .infinity)
+                .font(.title3)
+                .padding()
+                .backgroundColor(themeColorType: .base)
+                .clipShape(Capsule())
+                .padding(.horizontal, horizontalPadding)
+                .foregroundColor(themeColorType: .baseInverted)
+        }
     }
 }

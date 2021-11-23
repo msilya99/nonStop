@@ -14,28 +14,36 @@ struct NSEventView: View {
     var event: NSEventModel
     var editEventAction: (() -> Void)
     var deleteEventAction: (() -> Void)
+    
     @State private var showEditingMenu: Bool = false
+    @State private var showDescription: Bool = false
 
     // MARK: - views body
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            HStack(alignment: .center) {
-                Text(event.selectedIcon)
-                    .font(.system(size: 48))
+            VStack {
+                HStack(alignment: .center) {
+                    Text(event.selectedIcon)
+                        .font(.system(size: 48))
 
-                VStack(alignment: .leading, spacing: 8) {
-                    Text(event.eventName)
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(getMainColor())
-                    Text(getTimeRangeString())
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(event.eventName)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .foregroundColor(getMainColor())
+                        Text(getTimeRangeString())
+                            .foregroundColor(getDescriptionColor())
+                    }
+                    Spacer()
+
+                    Text(getIntervalValueString())
                         .foregroundColor(getDescriptionColor())
                 }
-                Spacer()
 
-                Text(getIntervalValueString())
-                    .foregroundColor(getDescriptionColor())
+                if !event.eventDescription.isEmpty {
+                    getAdditionalInfoView()
+                }
             }
 
             getMenuView()
@@ -66,6 +74,20 @@ struct NSEventView: View {
             Image(systemName: "ellipsis")
                 .foregroundColor(getMainColor())
         }
+    }
+
+    // MARK: - create additional info view
+
+    @ViewBuilder
+    private func getAdditionalInfoView() -> some View {
+        DisclosureGroup("Show description", isExpanded: $showDescription) {
+            Text(event.eventDescription)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(getDescriptionColor())
+        }
+        .accentColor(getMainColor())
+        .font(.subheadline)
+        .foregroundColor(getMainColor())
     }
 
     // MARK: - getter actions
