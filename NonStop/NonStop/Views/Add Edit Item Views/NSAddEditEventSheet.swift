@@ -7,27 +7,35 @@
 
 import SwiftUI
 
-struct NSAddEventSheet: View {
+struct NSAddEditEventSheet: View {
 
     // MARK: - variables
 
-    @StateObject private var addEventModel = NSAddEventViewModel()
+    @StateObject private var addEditEventModel = NSAddEventViewModel()
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.colorScheme) var colorScheme
     @Binding var shouldBeVisible: Bool
+
+    // MARK: - initialization
+
+    init(shouldBeVisible: Binding<Bool>, eventModel: NSEventModel? = nil) {
+        _shouldBeVisible = shouldBeVisible
+        guard let eventModel = eventModel else { return }
+        self.addEditEventModel.setModel(eventModel)
+    }
 
     // MARK: - views
 
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
-                NSAddEventSheetFormView(addEventModel: addEventModel)
-                NSPrimaryButton(title: "Save and add") {
-                    guard let model = addEventModel.getModel() else { return }
+                NSAddEditEventSheetFormView(addEditEventModel: addEditEventModel)
+                NSPrimaryButton(title: "Save") {
+                    guard let model = addEditEventModel.getModel() else { return }
                     addEvent(model: model)
                 }
             }
-            .navigationTitle("New event")
+            .navigationTitle(addEditEventModel.isEditing ? "Edit event" : "New event")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

@@ -43,6 +43,29 @@ extension Date {
         }
     }
 
+    /// SwifterSwift: Day.
+    ///
+    ///     Date().day -> 12
+    ///
+    ///     var someDate = Date()
+    ///     someDate.day = 1 // sets someDate's day of month to 1.
+    ///
+    var day: Int {
+        get {
+            return Calendar.current.component(.day, from: self)
+        }
+        set {
+            let allowedRange = Calendar.current.range(of: .day, in: .month, for: self)!
+            guard allowedRange.contains(newValue) else { return }
+
+            let currentDay = Calendar.current.component(.day, from: self)
+            let daysToAdd = newValue - currentDay
+            if let date = Calendar.current.date(byAdding: .day, value: daysToAdd, to: self) {
+                self = date
+            }
+        }
+    }
+
     /// SwifterSwift: Hour.
     ///
     ///     Date().hour -> 17 // 5 pm
@@ -172,7 +195,8 @@ extension Date {
                                                withSeconds: Bool = false) -> String {
         let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         var dateString = ""
-        if date.hour > 0 { dateString += "\(date.hour) h" }
+        if date.day > 1 { dateString += "\(date.day - 1) d" }
+        if date.hour > 0 { dateString += " \(date.hour) h" }
         if date.minute > 0 { dateString += " \(date.minute) min" }
         if withSeconds, date.second > 0 { dateString += " \(date.second) sec" }
         return dateString

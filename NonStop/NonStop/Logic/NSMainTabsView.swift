@@ -35,8 +35,6 @@ struct NSMainTabsView: View {
                          addItemAction: { shouldShowSheet = true })
         }
         .edgesIgnoringSafeArea(.bottom)
-        .sheet(isPresented: $shouldShowSheet) {
-            NSAddEventSheet(shouldBeVisible: $shouldShowSheet)
-        }
+        .sheet(isPresented: $shouldShowSheet) { NSAddEditEventSheet() }
     }
 }

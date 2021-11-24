@@ -17,6 +17,8 @@ struct NSEventsList: View {
         animation: .default)
     private var events: FetchedResults<Event>
 
+    @State private var selectedEventForEditing: Event?
+
     // MARK: - body views
 
     var body: some View {
@@ -25,9 +27,15 @@ struct NSEventsList: View {
                 LazyVStack(spacing: 16) {
                     ForEach(events) { event in
                         NSEventView(event: NSEventModel(event: event),
-                                    editEventAction: { print("Event editing") },
+                                    editEventAction: { [weak event] in
+                            self.selectedEventForEditing = event
+                        },
                                     deleteEventAction: { [weak event] in
-                            deleteEvent(event) })
+                            deleteEvent(event)
+                        })
+                            .sheet(item: $selectedEventForEditing) { eventItem in
+                                NSAddEditEventSheet(eventModel: eventItem)
+                            }
                     }
                 }
                 .padding(.bottom, SYS.tabbarHeight)

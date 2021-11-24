@@ -13,7 +13,7 @@
 		990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */; };
 		9935ED982739C9F400A5A1C1 /* NSTimerCounterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */; };
 		9935ED9A2739CC6900A5A1C1 /* View + EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9935ED992739CC6800A5A1C1 /* View + EX.swift */; };
-		993A0985274306A600DBD1AA /* NSAddEventSheetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */; };
+		993A0985274306A600DBD1AA /* NSAddEditEventSheetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A0984274306A600DBD1AA /* NSAddEditEventSheetFormView.swift */; };
 		993A098A2743161900DBD1AA /* emojis.json in Resources */ = {isa = PBXBuildFile; fileRef = 993A09892743161900DBD1AA /* emojis.json */; };
 		993A098C2743169700DBD1AA /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A098B2743169700DBD1AA /* Emoji.swift */; };
 		993A098E274318D700DBD1AA /* EmojiLoadingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993A098D274318D700DBD1AA /* EmojiLoadingManager.swift */; };
@@ -33,7 +33,7 @@
 		998439CD2741B4D200772A90 /* NSPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439CC2741B4D200772A90 /* NSPrimaryButton.swift */; };
 		998439CF2741BCBE00772A90 /* NSViewThemeColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439CE2741BCBE00772A90 /* NSViewThemeColorModifier.swift */; };
 		998439D52741C7EB00772A90 /* Color + EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439D42741C7EB00772A90 /* Color + EX.swift */; };
-		99AD3996274187BD003DD9A9 /* NSAddEventSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */; };
+		9990D659274EF1E5007457D0 /* NSAddEditEventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9990D658274EF1E5007457D0 /* NSAddEditEventSheetView.swift */; };
 		99B232E4273B24110093C3AC /* NSAddItemTabButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */; };
 		99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B232E9273B45910093C3AC /* NSPressModifier.swift */; };
 		99BAC1B22731E8B100536F7B /* NonStopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAC1B12731E8B100536F7B /* NonStopApp.swift */; };
@@ -60,7 +60,7 @@
 		990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSGaugeProgressStyle.swift; sourceTree = "<group>"; };
 		9935ED972739C9F400A5A1C1 /* NSTimerCounterLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTimerCounterLabel.swift; sourceTree = "<group>"; };
 		9935ED992739CC6800A5A1C1 /* View + EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + EX.swift"; sourceTree = "<group>"; };
-		993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEventSheetFormView.swift; sourceTree = "<group>"; };
+		993A0984274306A600DBD1AA /* NSAddEditEventSheetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEditEventSheetFormView.swift; sourceTree = "<group>"; };
 		993A09892743161900DBD1AA /* emojis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emojis.json; sourceTree = "<group>"; };
 		993A098B2743169700DBD1AA /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		993A098D274318D700DBD1AA /* EmojiLoadingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiLoadingManager.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		998439CC2741B4D200772A90 /* NSPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPrimaryButton.swift; sourceTree = "<group>"; };
 		998439CE2741BCBE00772A90 /* NSViewThemeColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewThemeColorModifier.swift; sourceTree = "<group>"; };
 		998439D42741C7EB00772A90 /* Color + EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + EX.swift"; sourceTree = "<group>"; };
-		99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEventSheet.swift; sourceTree = "<group>"; };
+		9990D658274EF1E5007457D0 /* NSAddEditEventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddEditEventSheetView.swift; sourceTree = "<group>"; };
 		99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAddItemTabButon.swift; sourceTree = "<group>"; };
 		99B232E9273B45910093C3AC /* NSPressModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPressModifier.swift; sourceTree = "<group>"; };
 		99BAC1AE2731E8B100536F7B /* NonStop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NonStop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,16 +125,16 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
-		993A09802743021500DBD1AA /* Add Item Views */ = {
+		993A09802743021500DBD1AA /* Add Edit Item Views */ = {
 			isa = PBXGroup;
 			children = (
-				99AD3995274187BD003DD9A9 /* NSAddEventSheet.swift */,
 				99B232E3273B24110093C3AC /* NSAddItemTabButon.swift */,
-				993A0984274306A600DBD1AA /* NSAddEventSheetFormView.swift */,
+				993A0984274306A600DBD1AA /* NSAddEditEventSheetFormView.swift */,
 				993A098F27431A5800DBD1AA /* NSEmojiPicker.swift */,
 				996E414A2744569700BC3902 /* NSTextEditor.swift */,
+				9990D658274EF1E5007457D0 /* NSAddEditEventSheetView.swift */,
 			);
-			path = "Add Item Views";
+			path = "Add Edit Item Views";
 			sourceTree = "<group>";
 		};
 		993A09812743023900DBD1AA /* Tabbar views */ = {
@@ -224,7 +224,7 @@
 				993A09832743026D00DBD1AA /* Timer views */,
 				993A09822743025C00DBD1AA /* Buttons */,
 				993A09812743023900DBD1AA /* Tabbar views */,
-				993A09802743021500DBD1AA /* Add Item Views */,
+				993A09802743021500DBD1AA /* Add Edit Item Views */,
 				990DB5622733380800B62902 /* NSAnimationsViewList.swift */,
 			);
 			path = Views;
@@ -365,11 +365,10 @@
 				99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */,
 				99BAC1CB2731ECC700536F7B /* Date+EX.swift in Sources */,
 				99BAC1BB2731E8B400536F7B /* Persistence.swift in Sources */,
-				99AD3996274187BD003DD9A9 /* NSAddEventSheet.swift in Sources */,
 				99BAC1BE2731E8B400536F7B /* NonStop.xcdatamodeld in Sources */,
 				99B232EA273B45910093C3AC /* NSPressModifier.swift in Sources */,
 				990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */,
-				993A0985274306A600DBD1AA /* NSAddEventSheetFormView.swift in Sources */,
+				993A0985274306A600DBD1AA /* NSAddEditEventSheetFormView.swift in Sources */,
 				99DE0B2B274AEEA500E9DA34 /* NSEventView.swift in Sources */,
 				993A098E274318D700DBD1AA /* EmojiLoadingManager.swift in Sources */,
 				990DB5632733380800B62902 /* NSAnimationsViewList.swift in Sources */,
@@ -395,6 +394,7 @@
 				99548FCB273DCE5600BD477E /* NSTabBarView.swift in Sources */,
 				998439D52741C7EB00772A90 /* Color + EX.swift in Sources */,
 				9935ED982739C9F400A5A1C1 /* NSTimerCounterLabel.swift in Sources */,
+				9990D659274EF1E5007457D0 /* NSAddEditEventSheetView.swift in Sources */,
 				996E414B2744569800BC3902 /* NSTextEditor.swift in Sources */,
 				99BAC1D52731F16B00536F7B /* NSSystem.swift in Sources */,
 				996E414D27445FDB00BC3902 /* NSEventModel.swift in Sources */,

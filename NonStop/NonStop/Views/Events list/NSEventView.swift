@@ -51,7 +51,7 @@ struct NSEventView: View {
         .padding()
         .background(getEventColor())
         .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: NSThemeColors.sh.getColorByType(.base02), radius: 1, x: 1, y: 1)
+        .shadow(color: NSThemeColors.sh.getColorByType(.base02), radius: 2, x: 1, y: 1)
         .padding(.horizontal, 16)
     }
 
