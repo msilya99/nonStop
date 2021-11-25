@@ -13,9 +13,20 @@ class NSAddEventViewModel: ObservableObject {
     // MARK: - variables
 
     @Published var eventName: String = ""
-    @Published var isEverydayEvent = true
-    @Published var fromDate: Date = Date().adding(.day, value: 1)
-    @Published var toDate: Date = Date().adding(.day, value: 1).adding(.hour, value: 1)
+    
+    @Published var isEverydayEvent = true {
+        didSet {
+            self.updateDatesBySwitch()
+        }
+    }
+
+    @Published var fromDate: Date = Date() {
+        didSet {
+            guard fromDate.adding(.minute, value: 5) >= toDate else { return }
+            toDate = fromDate.adding(.minute, value: 5)
+        }
+    }
+    @Published var toDate: Date = Date().adding(.minute, value: 5)
     @Published var isNeedDescription = false
     @Published var eventDescription: String = ""
     @Published var eventColor = NSThemeColors.sh.getColorByType(.base)
@@ -26,10 +37,27 @@ class NSAddEventViewModel: ObservableObject {
     // MARK: - initialisation
 
     init(event: Event? = nil) {
-        self.setModelIfNeeded(event)
+        setModelIfNeeded(event)
     }
 
-    // MARK: - actions
+    // MARK: - getter
+
+    func getModel() -> NSEventModel? {
+        guard !eventName.isEmpty else {
+            showEventAlert = true
+            return nil
+        }
+
+        return NSEventModel(eventName: eventName,
+                            fromDate: fromDate,
+                            toDate: toDate,
+                            isSpecialDateEvent: !isEverydayEvent,
+                            eventDescription: eventDescription,
+                            color: eventColor.encode(),
+                            selectedIcon: selectedIcon)
+    }
+
+    // MARK: - setter
 
     private func setModelIfNeeded(_ event: FetchedResults<Event>.Element?) {
         guard let event = event else { return }
@@ -54,18 +82,13 @@ class NSAddEventViewModel: ObservableObject {
         selectedIcon = event.selectedIcon ?? "🤝"
     }
 
-    func getModel() -> NSEventModel? {
-        guard !eventName.isEmpty else {
-            showEventAlert = true
-            return nil
-        }
+    private func updateDatesBySwitch() {
+        toDate = isEverydayEvent
+        ? toDate.adding(.day, value: 1)
+        : toDate.adding(.day, value: -1)
 
-        return NSEventModel(eventName: eventName,
-                            fromDate: fromDate,
-                            toDate: toDate,
-                            isSpecialDateEvent: !isEverydayEvent,
-                            eventDescription: eventDescription,
-                            color: eventColor.encode(),
-                            selectedIcon: selectedIcon)
+        fromDate = isEverydayEvent
+        ? fromDate.adding(.day, value: 1)
+        : fromDate.adding(.day, value: -1)
     }
 }

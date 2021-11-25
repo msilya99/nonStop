@@ -52,7 +52,6 @@ struct NSEventView: View {
         .background(getEventColor())
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: NSThemeColors.sh.getColorByType(.base02), radius: 2, x: 1, y: 1)
-        .padding(.horizontal, 16)
     }
 
     // MARK: - create menu view

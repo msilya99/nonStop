@@ -28,12 +28,12 @@ struct NSAddEditEventSheetFormView: View {
                        isOn: $addEditEventModel.isEverydayEvent)
                 DatePicker("Starts",
                            selection: $addEditEventModel.fromDate,
-                           in: Date()...,
+                           in: getFromDateForRange()...,
                            displayedComponents: getDatePickerComponents())
 
                 DatePicker("Ends",
                            selection: $addEditEventModel.toDate,
-                           in: addEditEventModel.fromDate.adding(.minute, value: 5)...,
+                           in: getFromDateForRange().adding(.minute, value: 5)...,
                            displayedComponents: getDatePickerComponents())
             }
 
@@ -70,5 +70,13 @@ struct NSAddEditEventSheetFormView: View {
         return addEditEventModel.isEverydayEvent
         ? .hourAndMinute
         : [.date, .hourAndMinute]
+    }
+
+    private func getFromDateForRange() -> Date {
+        if addEditEventModel.isEverydayEvent {
+            return Date().adding(.day, value: -1)
+        } else {
+            return Date()
+        }
     }
 }

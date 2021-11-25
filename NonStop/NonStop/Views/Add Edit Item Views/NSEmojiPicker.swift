@@ -12,6 +12,7 @@ struct NSEmojiPicker: View {
     // MARK: - varaiables
 
     @Binding var selectedEmoji: String
+    @State private var isSelectedChanged: Bool = false
 
     private let emojis: [Emoji] = EmojiLoadingManager().emojis
     private let columns: [GridItem] = [
@@ -30,16 +31,16 @@ struct NSEmojiPicker: View {
                     ZStack(alignment: .center) {
                         Text(emoji.emoji)
                             .font(.largeTitle)
-                            .opacity(self.selectedEmoji == emoji.emoji ? 0.3 : 1)
+                            .opacity(selectedEmoji == emoji.emoji ? 0.3 : 1)
                             .onTapGesture {
                                 withAnimation {
-                                    self.selectedEmoji = emoji.emoji
+                                    selectedEmoji = emoji.emoji
+                                    isSelectedChanged.toggle()
                                 }
                             }
-                        if selectedEmoji == emoji.emoji {
                             Image(systemName: "checkmark")
                                 .foregroundColor(themeColorType: .base)
-                        }
+                                .hidden(selectedEmoji != emoji.emoji)
                     }
 
                 }

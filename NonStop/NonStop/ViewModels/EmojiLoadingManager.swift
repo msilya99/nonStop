@@ -18,7 +18,7 @@ struct EmojiLoadingManager {
 
     // MARK: - initialization
 
-    init() { self.setEmojis() }
+    init() { setEmojis() }
 
     // MARK: - setter
 
