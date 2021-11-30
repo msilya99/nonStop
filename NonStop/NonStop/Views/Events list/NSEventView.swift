@@ -71,7 +71,10 @@ struct NSEventView: View {
             }
         } label: {
             Image(systemName: "ellipsis")
+                .font(.system(size: 20))
                 .foregroundColor(getMainColor())
+                .padding(.horizontal, 8)
+                .padding(.bottom, 8)
         }
     }
 

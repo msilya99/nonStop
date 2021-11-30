@@ -37,7 +37,7 @@ struct NSAddEditEventSheet: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     } label: {
                         Label("Close", systemImage: "xmark.circle")
                     }
@@ -70,7 +70,17 @@ struct NSAddEditEventSheet: View {
             if viewContext.hasChanges {
                 try? viewContext.save()
             }
+            dismiss()
+        }
+    }
+
+    private func dismiss() {
+        if presentationMode.wrappedValue.isPresented {
             presentationMode.wrappedValue.dismiss()
+        }
+
+        if let topController = UIApplication.shared.windows.first?.rootViewController {
+            topController.dismiss(animated: true)
         }
     }
 }
