@@ -19,10 +19,10 @@ struct NSAddEditEventSheetFormView: View {
         Form {
             Section {
                 TextField("Enter event name", text: $addEditEventModel.eventName)
-                    .alert(isPresented: $addEditEventModel.showEventAlert) {
+                    .alert(isPresented: $addEditEventModel.showNameAlert) {
                         Alert(title: Text("Saving error!"),
                               message: Text("You forget to give a name to event"),
-                              dismissButton: .default(Text("OK")) { addEditEventModel.showEventAlert = false })
+                              dismissButton: .default(Text("OK")) { addEditEventModel.showNameAlert = false })
                     }
                 Toggle("\(addEditEventModel.isEverydayEvent ? "Everyday event" : "Special date event" )",
                        isOn: $addEditEventModel.isEverydayEvent)
@@ -35,6 +35,11 @@ struct NSAddEditEventSheetFormView: View {
                            selection: $addEditEventModel.toDate,
                            in: getToDateRange(),
                            displayedComponents: getDatePickerComponents())
+                    .alert(isPresented: $addEditEventModel.showDateAlert) {
+                        Alert(title: Text("Saving error!"),
+                              message: Text("Sorry, but min range should be at least 5 min!"),
+                              dismissButton: .default(Text("OK")) { addEditEventModel.showDateAlert = false })
+                    }
             }
 
             Section(header: Text("You can add description to event")) {
@@ -72,16 +77,15 @@ struct NSAddEditEventSheetFormView: View {
         : [.date, .hourAndMinute]
     }
 
-    // TODO: - refactor this
     private func getFromDate() -> Date {
         if addEditEventModel.isEverydayEvent {
-            return Date.getCurrentDate().startDay()
+            return addEditEventModel.fromDate.startDay()
         } else {
-            return addEditEventModel.fromDate.startDay() != Date.getCurrentDate().startDay() ?  addEditEventModel.fromDate.startDay() : addEditEventModel.fromDate
+            return addEditEventModel.fromDate
         }
     }
 
     private func getToDateRange() -> ClosedRange<Date> {
-        return getFromDate().adding(.minute, value: 5)...addEditEventModel.fromDate.adding(.day, value: 1).adding(.minute, value: 5)
+        return getFromDate().adding(.minute, value: addEditEventModel.isEverydayEvent ? 0 : 5)...addEditEventModel.fromDate.adding(.day, value: 1)
     }
 }

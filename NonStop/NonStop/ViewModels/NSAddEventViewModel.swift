@@ -14,19 +14,27 @@ class NSAddEventViewModel: ObservableObject {
 
     @Published var eventName: String = ""
     
-    @Published var isEverydayEvent = true
+    @Published var isEverydayEvent = true {
+        didSet {
+            updateDateIfNeeded()
+        }
+    }
 
     @Published var fromDate: Date = Date.getCurrentDate() {
         didSet {
-            updateToDateIfNeeded()
+            guard !isEverydayEvent,
+                  fromDate.adding(.minute, value: 5) >= toDate else { return }
+            toDate = fromDate.adding(.minute, value: 5)
         }
     }
+    
     @Published var toDate: Date = Date.getCurrentDate().adding(.minute, value: 5)
     @Published var isNeedDescription = false
     @Published var eventDescription: String = ""
     @Published var eventColor = NSThemeColors.sh.getColorByType(.base)
     @Published var selectedIcon = "🤝"
-    @Published var showEventAlert: Bool = false
+    @Published var showNameAlert: Bool = false
+    @Published var showDateAlert: Bool = false
     var event: Event?
 
     // MARK: - initialisation
@@ -39,7 +47,12 @@ class NSAddEventViewModel: ObservableObject {
 
     func getModel() -> NSEventModel? {
         guard !eventName.isEmpty else {
-            showEventAlert = true
+            showNameAlert = true
+            return nil
+        }
+
+        guard isRangeGreaterThenTo(minutes: 4) else {
+            showDateAlert = true
             return nil
         }
 
@@ -77,11 +90,21 @@ class NSAddEventViewModel: ObservableObject {
         selectedIcon = event.selectedIcon ?? "🤝"
     }
 
-    // TODO: - refactor this
-    private func updateToDateIfNeeded() {
-        guard !isEverydayEvent,
-              fromDate.adding(.minute, value: 5) >= toDate
-                || fromDate.adding(.day, value: 1) < toDate else { return }
-        toDate = fromDate.adding(.minute, value: 5)
+    private func updateDateIfNeeded() {
+        if isEverydayEvent {
+            fromDate = Date.getCurrentDate()
+            toDate = Date.getCurrentDate().adding(.minute, value: 5)
+        } else {
+            fromDate = fromDate.startDay() != Date.getCurrentDate().startDay() ? fromDate : Date.getCurrentDate()
+        }
     }
+
+    private func isRangeGreaterThenTo(days: Int = 0, hours: Int = 0, minutes: Int = 0) -> Bool {
+        let date = Date(timeIntervalSinceReferenceDate: toDate - fromDate)
+        if (date.day - 1) > days || date.hour > hours || date.minute > minutes {
+            return true
+        }
+        return false
+    }
+
 }

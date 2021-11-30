@@ -52,15 +52,15 @@ extension Date {
     ///
     var day: Int {
         get {
-            return Calendar.current.component(.day, from: self)
+            return SYS.calendar.component(.day, from: self)
         }
         set {
-            let allowedRange = Calendar.current.range(of: .day, in: .month, for: self)!
+            let allowedRange = SYS.calendar.range(of: .day, in: .month, for: self)!
             guard allowedRange.contains(newValue) else { return }
 
-            let currentDay = Calendar.current.component(.day, from: self)
+            let currentDay = SYS.calendar.component(.day, from: self)
             let daysToAdd = newValue - currentDay
-            if let date = Calendar.current.date(byAdding: .day, value: daysToAdd, to: self) {
+            if let date = SYS.calendar.date(byAdding: .day, value: daysToAdd, to: self) {
                 self = date
             }
         }
@@ -136,7 +136,7 @@ extension Date {
                   withCurrentLocale: Bool = true,
                   truncateLeadingZero: Bool = false) -> String {
         let formatter = DateFormatter()
-        let timeZone = TimeZone(abbreviation: timeZoneAbbreviation ?? "") ?? Calendar.current.timeZone
+        let timeZone = TimeZone(abbreviation: timeZoneAbbreviation ?? "") ?? SYS.timeZone
         formatter.timeZone = timeZone
         formatter.dateFormat = format
         if withCurrentLocale {
@@ -191,16 +191,14 @@ extension Date {
                              timeZoneAbbreviation: DateTimeFormat.defaultTimeZone)
     }
 
-    // TODO: - refactor this to different types enum
-    static func getDetailedIntervalValueString(_ timeInterval: TimeInterval,
-                                               withDay: Bool = true,
-                                               withSeconds: Bool = false) -> String {
+    static func getHourAndMinuteIntervalString(_ timeInterval: TimeInterval,
+                                               withDays: Bool = false) -> String {
         let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         var dateString = ""
-        if withDay, date.day > 2 { dateString += "\(date.day - 1) d" }
+        if withDays, date.day > 1 { dateString += "\(date.day - 1) d" }
         if date.hour > 0 { dateString += " \(date.hour) h" }
         if date.minute > 0 { dateString += " \(date.minute) min" }
-        if withSeconds, date.second > 0 { dateString += " \(date.second) sec" }
+        if (date.day - 1) == 0, date.hour == 0, date.minute == 0 { dateString += "1 d" }
         return dateString
     }
 
