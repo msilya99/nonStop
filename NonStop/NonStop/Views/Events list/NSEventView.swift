@@ -106,7 +106,8 @@ struct NSEventView: View {
             return ""
         }
 
-        return Date.getDetailedIntervalValueString(toDate - fromDate)
+        return Date.getDetailedIntervalValueString(toDate - fromDate,
+                                                   withDay: event.isSpecialDateEvent)
     }
 
     private func getEventColor() -> Color {

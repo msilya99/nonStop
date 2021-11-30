@@ -191,11 +191,13 @@ extension Date {
                              timeZoneAbbreviation: DateTimeFormat.defaultTimeZone)
     }
 
+    // TODO: - refactor this to different types enum
     static func getDetailedIntervalValueString(_ timeInterval: TimeInterval,
+                                               withDay: Bool = true,
                                                withSeconds: Bool = false) -> String {
         let date = Date(timeIntervalSinceReferenceDate: timeInterval)
         var dateString = ""
-        if date.day > 1 { dateString += "\(date.day - 1) d" }
+        if withDay, date.day > 2 { dateString += "\(date.day - 1) d" }
         if date.hour > 0 { dateString += " \(date.hour) h" }
         if date.minute > 0 { dateString += " \(date.minute) min" }
         if withSeconds, date.second > 0 { dateString += " \(date.second) sec" }
