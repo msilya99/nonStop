@@ -54,15 +54,18 @@ struct NSEventsList: View {
 
     @ViewBuilder
     private func getEventsBlock(isCurrentEvents: Bool) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text(isCurrentEvents ? "Current events" : "Other events for today")
-                .font(.title3)
-                .fontWeight(.medium)
-                .foregroundColor(NSThemeColors.sh.getColorByType(.base))
-            ForEach(getFilteredEvents(shouldBeCurrent: isCurrentEvents)) { event in
-                getEventView(event: event)
-            }
-        }.padding(16)
+        let filteredEvents = getFilteredEvents(shouldBeCurrent: isCurrentEvents)
+        if !filteredEvents.isEmpty {
+            VStack(alignment: .leading, spacing: 16) {
+                Text(isCurrentEvents ? "Current events" : "Not current events for today")
+                    .font(.title3)
+                    .fontWeight(.medium)
+                    .foregroundColor(NSThemeColors.sh.getColorByType(.base))
+                ForEach(filteredEvents) { event in
+                    getEventView(event: event)
+                }
+            }.padding(16)
+        }
     }
 
     // MARK: - delete event action
@@ -81,9 +84,19 @@ struct NSEventsList: View {
 
     private func getFilteredEvents(shouldBeCurrent: Bool) -> [Event] {
         return events.filter { event in
+
+            // TODO: - refactor this
             guard let toDate = event.toDate,
                   let fromDate = event.fromDate else { return false }
-            let isCurrentEvent = fromDate...toDate ~= Date()
+            var isCurrentEvent: Bool = false
+            if event.isSpecialDateEvent {
+                isCurrentEvent = fromDate...toDate ~= Date.getCurrentDate()
+            } else if fromDate > toDate {
+                var toDateWithAdditionalInterval = toDate
+                toDateWithAdditionalInterval.addTimeInterval(fromDate - toDate)
+                isCurrentEvent = fromDate...toDateWithAdditionalInterval ~= Date.getCurrentDate()
+            }
+
             return shouldBeCurrent ? isCurrentEvent : !isCurrentEvent
         }
     }

@@ -14,19 +14,14 @@ class NSAddEventViewModel: ObservableObject {
 
     @Published var eventName: String = ""
     
-    @Published var isEverydayEvent = true {
-        didSet {
-            self.updateDatesBySwitch()
-        }
-    }
+    @Published var isEverydayEvent = true
 
-    @Published var fromDate: Date = Date() {
+    @Published var fromDate: Date = Date.getCurrentDate() {
         didSet {
-            guard fromDate.adding(.minute, value: 5) >= toDate else { return }
-            toDate = fromDate.adding(.minute, value: 5)
+            updateToDateIfNeeded()
         }
     }
-    @Published var toDate: Date = Date().adding(.minute, value: 5)
+    @Published var toDate: Date = Date.getCurrentDate().adding(.minute, value: 5)
     @Published var isNeedDescription = false
     @Published var eventDescription: String = ""
     @Published var eventColor = NSThemeColors.sh.getColorByType(.base)
@@ -82,13 +77,11 @@ class NSAddEventViewModel: ObservableObject {
         selectedIcon = event.selectedIcon ?? "🤝"
     }
 
-    private func updateDatesBySwitch() {
-        toDate = isEverydayEvent
-        ? toDate.adding(.day, value: 1)
-        : toDate.adding(.day, value: -1)
-
-        fromDate = isEverydayEvent
-        ? fromDate.adding(.day, value: 1)
-        : fromDate.adding(.day, value: -1)
+    // TODO: - refactor this
+    private func updateToDateIfNeeded() {
+        guard !isEverydayEvent,
+              fromDate.adding(.minute, value: 5) >= toDate
+                || fromDate.adding(.day, value: 1) < toDate else { return }
+        toDate = fromDate.adding(.minute, value: 5)
     }
 }

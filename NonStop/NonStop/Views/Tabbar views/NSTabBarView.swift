@@ -38,7 +38,7 @@ struct NSTabBarView: View {
             }
             .padding(.bottom, SYS.safeAreaBottomInset == 0 ? 0 : SYS.safeAreaBottomInset / 2)
         }
-        .frame(width: .infinity,
+        .frame(width: SYS.screenSize.width,
                height: SYS.tabbarHeight,
                alignment: .bottom)
         .padding(.bottom, SYS.safeAreaBottomInset == 0 ? 16 : SYS.safeAreaBottomInset / 2)

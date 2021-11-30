@@ -208,4 +208,12 @@ extension Date {
         return date.toString(format: format,
                              timeZoneAbbreviation: DateTimeFormat.defaultTimeZone)
     }
+
+    static func getCurrentDate() -> Date {
+        guard let timezoneOffset = TimeZone(abbreviation: DateTimeFormat.defaultTimeZone)?.secondsFromGMT() else { return Date() }
+        let epochDate = Date().timeIntervalSince1970
+        let timezoneEpochOffset = (epochDate + Double(timezoneOffset))
+
+        return Date(timeIntervalSince1970: timezoneEpochOffset)
+    }
 }
