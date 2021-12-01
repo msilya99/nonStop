@@ -38,16 +38,23 @@ struct NSEventsList: View {
 
     @ViewBuilder
     private func getEventView(event: Event) -> some View {
-        NSEventView(event: NSEventModel(event: event),
-                    editEventAction: { [weak event] in
-            selectedEventForEditing = event
-        },
-                    deleteEventAction: { [weak event] in
-            deleteEvent(event)
-        })
-            .sheet(item: $selectedEventForEditing) { eventItem in
-                NSAddEditEventSheet(eventModel: eventItem)
-            }
+        let eventModel = NSEventModel(event: event)
+        ZStack(alignment: .topLeading) {
+            NSEventView(event: eventModel,
+                        editEventAction: { [weak event] in
+                selectedEventForEditing = event
+            },
+                        deleteEventAction: { [weak event] in
+                deleteEvent(event)
+            })
+                .sheet(item: $selectedEventForEditing) { eventItem in
+                    NSAddEditEventSheet(eventModel: eventItem)
+                }
+
+            NSChipEventView(title: "Current", eventColor: eventModel.eventColor)
+                .offset(y: -10)
+                .offset(x: 20)
+        }
     }
 
     // MARK: - create events block
@@ -89,7 +96,7 @@ struct NSEventsList: View {
             var isCurrentEvent: Bool = false
             if event.isSpecialDateEvent {
                 isCurrentEvent = fromDate...toDate ~= Date.getCurrentDate()
-            } else if fromDate > toDate {
+            } else if fromDate > toDate || !event.isSpecialDateEvent {
                 isCurrentEvent = Date.getCurrentDate()
                     .isInTimeInterval(fromDate: fromDate, toDate: toDate)
             }

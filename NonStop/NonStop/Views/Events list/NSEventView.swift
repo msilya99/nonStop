@@ -31,14 +31,14 @@ struct NSEventView: View {
                         Text(event.eventName)
                             .font(.title3)
                             .fontWeight(.bold)
-                            .foregroundColor(getMainColor())
+                            .foregroundColor(event.eventColor.getMainColor())
                         Text(getTimeRangeString())
-                            .foregroundColor(getDescriptionColor())
+                            .foregroundColor(event.eventColor.getAdditionalColor())
                     }
                     Spacer()
 
                     Text(getIntervalValueString())
-                        .foregroundColor(getDescriptionColor())
+                        .foregroundColor(event.eventColor.getAdditionalColor())
                 }
 
                 if !event.eventDescription.isEmpty {
@@ -49,7 +49,7 @@ struct NSEventView: View {
             getMenuView()
         }
         .padding()
-        .background(getEventColor())
+        .background(event.eventColor)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: NSThemeColors.sh.getColorByType(.base02), radius: 2, x: 1, y: 1)
     }
@@ -72,7 +72,7 @@ struct NSEventView: View {
         } label: {
             Image(systemName: "ellipsis")
                 .font(.system(size: 20))
-                .foregroundColor(getMainColor())
+                .foregroundColor(event.eventColor.getMainColor())
                 .padding(.horizontal, 8)
                 .padding(.bottom, 8)
         }
@@ -85,11 +85,11 @@ struct NSEventView: View {
         DisclosureGroup("Show description", isExpanded: $showDescription) {
             Text(event.eventDescription)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(getDescriptionColor())
+                .foregroundColor(event.eventColor.getAdditionalColor())
         }
-        .accentColor(getMainColor())
+        .accentColor(event.eventColor.getMainColor())
         .font(.subheadline)
-        .foregroundColor(getMainColor())
+        .foregroundColor(event.eventColor.getMainColor())
     }
 
     // MARK: - getter actions
@@ -111,21 +111,5 @@ struct NSEventView: View {
 
         return Date.getHourAndMinuteIntervalString(toDate - fromDate,
                                                    withDays: event.isSpecialDateEvent)
-    }
-
-    private func getEventColor() -> Color {
-        guard let colorDate = event.color,
-              let color = Color.color(withData: colorDate) else {
-                  return NSThemeColors.sh.getColorByType(.base)
-              }
-        return color
-    }
-
-    private func getMainColor() -> Color {
-        NSBaseColors.sh.getColor(.base, isLightColor: getEventColor().isLightColor())
-    }
-
-    private func getDescriptionColor() -> Color {
-        NSBaseColors.sh.getColor(.base02, isLightColor: getEventColor().isLightColor())
     }
 }

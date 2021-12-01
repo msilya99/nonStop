@@ -30,6 +30,7 @@
 		99745CAB2736B91200170F1D /* NSDotStyleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */; };
 		99745CAD2736CB6F00170F1D /* NSWaveShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAC2736CB6F00170F1D /* NSWaveShape.swift */; };
 		99745CAF2736E4FD00170F1D /* NSProgressViewStyleEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */; };
+		9974C4CC2758318200244866 /* NSChipEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974C4CB2758318200244866 /* NSChipEventView.swift */; };
 		998439CD2741B4D200772A90 /* NSPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439CC2741B4D200772A90 /* NSPrimaryButton.swift */; };
 		998439CF2741BCBE00772A90 /* NSViewThemeColorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439CE2741BCBE00772A90 /* NSViewThemeColorModifier.swift */; };
 		998439D52741C7EB00772A90 /* Color + EX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998439D42741C7EB00772A90 /* Color + EX.swift */; };
@@ -77,6 +78,7 @@
 		99745CAA2736B91200170F1D /* NSDotStyleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDotStyleProgressView.swift; sourceTree = "<group>"; };
 		99745CAC2736CB6F00170F1D /* NSWaveShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWaveShape.swift; sourceTree = "<group>"; };
 		99745CAE2736E4FD00170F1D /* NSProgressViewStyleEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSProgressViewStyleEx.swift; sourceTree = "<group>"; };
+		9974C4CB2758318200244866 /* NSChipEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSChipEventView.swift; sourceTree = "<group>"; };
 		998439CC2741B4D200772A90 /* NSPrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPrimaryButton.swift; sourceTree = "<group>"; };
 		998439CE2741BCBE00772A90 /* NSViewThemeColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewThemeColorModifier.swift; sourceTree = "<group>"; };
 		998439D42741C7EB00772A90 /* Color + EX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + EX.swift"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			children = (
 				99DE0B28274ADC7F00E9DA34 /* NSEventsList.swift */,
 				99DE0B2A274AEEA500E9DA34 /* NSEventView.swift */,
+				9974C4CB2758318200244866 /* NSChipEventView.swift */,
 			);
 			path = "Events list";
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				9935ED982739C9F400A5A1C1 /* NSTimerCounterLabel.swift in Sources */,
 				9990D659274EF1E5007457D0 /* NSAddEditEventSheetView.swift in Sources */,
 				996E414B2744569800BC3902 /* NSTextEditor.swift in Sources */,
+				9974C4CC2758318200244866 /* NSChipEventView.swift in Sources */,
 				99BAC1D52731F16B00536F7B /* NSSystem.swift in Sources */,
 				996E414D27445FDB00BC3902 /* NSEventModel.swift in Sources */,
 				990DB561273337D800B62902 /* NSMainTabsView.swift in Sources */,

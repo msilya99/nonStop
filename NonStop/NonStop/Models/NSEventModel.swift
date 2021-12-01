@@ -17,6 +17,16 @@ struct NSEventModel {
     var color: Data?
     let selectedIcon: String
 
+    var eventColor: Color {
+        guard let colorDate = color,
+              let color = Color.color(withData: colorDate) else {
+                  return NSThemeColors.sh.getColorByType(.base)
+              }
+        return color
+    }
+
+    // MARK: - initialisation
+
     init(eventName: String,
          fromDate: Date?,
          toDate: Date?,

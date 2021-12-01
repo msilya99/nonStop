@@ -84,4 +84,14 @@ extension Color {
         guard let cgColor = self.cgColor else { return false }
         return UIColor(cgColor: cgColor).isLight() ?? false
     }
+
+    func getMainColor(isInverted: Bool = false) -> Color {
+        NSBaseColors.sh.getColor(.base,
+                                 isLightColor: isInverted ? !self.isLightColor() : self.isLightColor())
+    }
+
+    func getAdditionalColor(isInverted: Bool = false) -> Color {
+        NSBaseColors.sh.getColor(.base02,
+                                 isLightColor: isInverted ? !self.isLightColor() : self.isLightColor())
+    }
 }
