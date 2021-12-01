@@ -43,6 +43,50 @@ extension Date {
         }
     }
 
+    /// SwifterSwift: Year.
+    ///
+    ///        Date().year -> 2017
+    ///
+    ///        var someDate = Date()
+    ///        someDate.year = 2000 // sets someDate's year to 2000
+    ///
+    var year: Int {
+        get {
+            return SYS.calendar.component(.year, from: self)
+        }
+        set {
+            guard newValue > 0 else { return }
+            let currentYear = SYS.calendar.component(.year, from: self)
+            let yearsToAdd = newValue - currentYear
+            if let date = SYS.calendar.date(byAdding: .year, value: yearsToAdd, to: self) {
+                self = date
+            }
+        }
+    }
+
+    /// SwifterSwift: Month.
+    ///
+    ///     Date().month -> 1
+    ///
+    ///     var someDate = Date()
+    ///     someDate.month = 10 // sets someDate's month to 10.
+    ///
+    var month: Int {
+        get {
+            return SYS.calendar.component(.month, from: self)
+        }
+        set {
+            let allowedRange = SYS.calendar.range(of: .month, in: .year, for: self)!
+            guard allowedRange.contains(newValue) else { return }
+
+            let currentMonth = SYS.calendar.component(.month, from: self)
+            let monthsToAdd = newValue - currentMonth
+            if let date = SYS.calendar.date(byAdding: .month, value: monthsToAdd, to: self) {
+                self = date
+            }
+        }
+    }
+
     /// SwifterSwift: Day.
     ///
     ///     Date().day -> 12
@@ -215,5 +259,20 @@ extension Date {
         let timezoneEpochOffset = (epochDate + Double(timezoneOffset))
 
         return Date(timeIntervalSince1970: timezoneEpochOffset)
+    }
+
+    func isInTimeInterval(fromDate: Date, toDate: Date) -> Bool {
+        var startDate = fromDate
+        var endDate = toDate
+
+        startDate.day = self.day
+        startDate.month = self.month
+        startDate.year = self.year
+
+        endDate.day = self.day
+        endDate.month = self.month
+        endDate.year = self.year
+
+        return startDate...endDate ~= self
     }
 }

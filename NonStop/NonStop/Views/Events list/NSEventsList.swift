@@ -84,17 +84,14 @@ struct NSEventsList: View {
 
     private func getFilteredEvents(shouldBeCurrent: Bool) -> [Event] {
         return events.filter { event in
-
-            // TODO: - refactor this
             guard let toDate = event.toDate,
                   let fromDate = event.fromDate else { return false }
             var isCurrentEvent: Bool = false
             if event.isSpecialDateEvent {
                 isCurrentEvent = fromDate...toDate ~= Date.getCurrentDate()
             } else if fromDate > toDate {
-                var toDateWithAdditionalInterval = toDate
-                toDateWithAdditionalInterval.addTimeInterval(fromDate - toDate)
-                isCurrentEvent = fromDate...toDateWithAdditionalInterval ~= Date.getCurrentDate()
+                isCurrentEvent = Date.getCurrentDate()
+                    .isInTimeInterval(fromDate: fromDate, toDate: toDate)
             }
 
             return shouldBeCurrent ? isCurrentEvent : !isCurrentEvent
