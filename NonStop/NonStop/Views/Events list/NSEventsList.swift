@@ -18,6 +18,7 @@ struct NSEventsList: View {
     private var events: FetchedResults<Event>
 
     @State private var selectedEventForEditing: Event?
+    @State private var selectedEvent: Event?
 
     // MARK: - body views
 
@@ -38,6 +39,7 @@ struct NSEventsList: View {
 
     @ViewBuilder
     private func getEventView(event: Event) -> some View {
+        let currentEventsContainEvent = getFilteredEvents(shouldBeCurrent: true).contains(event)
         let eventModel = NSEventModel(event: event)
         ZStack(alignment: .topLeading) {
             NSEventView(event: eventModel,
@@ -50,10 +52,16 @@ struct NSEventsList: View {
                 .sheet(item: $selectedEventForEditing) { eventItem in
                     NSAddEditEventSheet(eventModel: eventItem)
                 }
+                .onTapGesture {
+                    guard currentEventsContainEvent else { return }
+                    selectedEvent = event
+                }
 
-            NSChipEventView(title: "Current", eventColor: eventModel.eventColor)
-                .offset(y: -10)
-                .offset(x: 20)
+            if currentEventsContainEvent, selectedEvent == event {
+                NSChipEventView(title: "Current", eventColor: eventModel.eventColor)
+                    .offset(y: -10)
+                    .offset(x: 20)
+            }
         }
     }
 
