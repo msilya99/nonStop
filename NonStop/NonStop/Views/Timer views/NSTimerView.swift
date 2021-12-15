@@ -11,8 +11,17 @@ struct NSTimerView: View {
 
     // MARK: - variables
 
-    @EnvironmentObject var initialTimer: NSInitialTimer
+    @ObservedObject private var initialTimer: NSInitialTimer
     private let progressSizeCoefficient = 0.75
+    @Binding var selectedEvent: Event?
+
+    // MARK: - initialization
+
+    init(selectedEvent: Binding<Event?>) {
+        _selectedEvent = selectedEvent
+        initialTimer = NSInitialTimer(selectedEvent: selectedEvent)
+        initialTimer.startTimer()
+    }
 
     // MARK: - views
 
@@ -34,10 +43,5 @@ struct NSTimerView: View {
         .frame(width: SYS.screenSize.width * progressSizeCoefficient,
                height: SYS.screenSize.width * progressSizeCoefficient,
                alignment: .center)
-        .onAppear {
-            initialTimer.startTimer()
-        }.onDisappear {
-            initialTimer.stopTimer()
-        }
     }
 }

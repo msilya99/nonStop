@@ -13,14 +13,12 @@ struct NonStopApp: App {
     // MARK: - global variables
 
     let persistenceController = PersistenceController.shared
-    @StateObject var initialTimer = NSInitialTimer()
 
     // MARK: - app main view
 
     var body: some Scene {
         WindowGroup {
             NSMainTabsView()
-                .environmentObject(initialTimer)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

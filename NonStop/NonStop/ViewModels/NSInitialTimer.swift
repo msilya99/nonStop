@@ -20,6 +20,17 @@ class NSInitialTimer: ObservableObject {
     }
     @Published var timeLeftPersentage: Double = 0
 
+    @Binding var selectedEvent: Event?
+
+    // MARK: - initialization
+
+    init(selectedEvent: Binding<Event?>) {
+        _selectedEvent = selectedEvent
+        defer {
+            updateStartAndEndDate()
+        }
+    }
+
     // MARK: - variables
 
     private var timer = Timer()
@@ -28,18 +39,20 @@ class NSInitialTimer: ObservableObject {
     private let fullyCompleteValue: Double = 100
     private let currentDate = Date()
 
-    var startDate: Date { return currentDate.adding(.second, value: -10) }
-    var endDate: Date { return currentDate.adding(.second, value: 20) }
+    var startDate: Date?
+    var endDate: Date?
 
     // MARK: - timer actions
 
     func startTimer() {
-        guard !isTimerStarted else { return }
+        guard !isTimerStarted,
+              let startDate = self.startDate,
+              let endDate = self.endDate else { return }
         isTimerStarted = true
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             let now = Date()
-            guard now > self.startDate else { return }
-            self.timeRemain = self.endDate - now
+            guard now > startDate else { return }
+            self.timeRemain = endDate - now
             if self.timeRemain < 0 {
                 self.stopTimer()
             }
@@ -56,10 +69,18 @@ class NSInitialTimer: ObservableObject {
     // MARK: - getters
 
     func getStartDateString() -> String {
+        guard let startDate = startDate else {
+            return ""
+        }
+
         return startDate.toString(format: DateTimeFormat.hoursAndMinutes)
     }
 
     func getEndDateString() -> String {
+        guard let endDate = endDate else {
+            return ""
+        }
+
         return endDate.toString(format: DateTimeFormat.hoursAndMinutes)
     }
 
@@ -71,7 +92,7 @@ class NSInitialTimer: ObservableObject {
         let date = Date(timeIntervalSinceReferenceDate: timeRemain)
         switch (date.hour, date.minute, date.second) {
         case (let hour, let minute , _) where hour == 0 && minute > 0:
-             return 0.2
+            return 0.2
         case (let hour, let minute , let second) where hour == 0 && minute == 0 && second >= 0:
             return 0.25
         default:
@@ -82,11 +103,31 @@ class NSInitialTimer: ObservableObject {
     // MARK: - actions
 
     private func updateTimeRemainingPersentageIfNeeded() {
-        guard timeLeftPersentage < fullyCompleteValue else { return }
+        guard let startDate = self.startDate,
+              let endDate = self.endDate,
+              timeLeftPersentage < fullyCompleteValue else { return }
         let intervalFromStartToEnd = endDate - startDate
         let newTimeRemaingPersentage = (timeRemain / intervalFromStartToEnd) * 100
         timeLeftPersentage = newTimeRemaingPersentage == fullyCompleteValue
         ? fullyCompleteValue
         : fullyCompleteValue - newTimeRemaingPersentage
+    }
+
+    private func updateStartAndEndDate() {
+        guard let event = self.selectedEvent else { return }
+        if event.isSpecialDateEvent {
+            self.startDate = event.fromDate
+            self.endDate = event.toDate
+        } else if var fromDate = event.fromDate,
+                  var toDate = event.toDate {
+            fromDate.onlyTimeDate()
+            toDate.onlyTimeDate()
+
+            if fromDate > toDate {
+                toDate.day += 1
+            }
+            self.startDate = fromDate
+            self.endDate = toDate
+        }
     }
 }

@@ -273,6 +273,17 @@ extension Date {
         endDate.month = self.month
         endDate.year = self.year
 
+        if startDate > endDate {
+            endDate.day += 1
+        }
+
         return startDate...endDate ~= self
+    }
+
+    mutating func onlyTimeDate() {
+        let now = Date.getCurrentDate()
+        self.day = now.day
+        self.month = now.month
+        self.year = now.year
     }
 }

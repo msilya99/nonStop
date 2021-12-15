@@ -23,15 +23,19 @@ struct NSEventsList: View {
     // MARK: - body views
 
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                LazyVStack(spacing: 16) {
-                    getEventsBlock(isCurrentEvents: true)
-                    getEventsBlock(isCurrentEvents: false)
-                }
-                .padding(.bottom, SYS.tabbarHeight)
+        ScrollView(showsIndicators: false) {
+            if selectedEvent != nil {
+                NSTimerView(selectedEvent: $selectedEvent)
             }
-            .navigationBarTitle(Text("Events"))
+            LazyVStack(spacing: 16) {
+                getEventsBlock(isCurrentEvents: true)
+                getEventsBlock(isCurrentEvents: false)
+            }
+            .padding(.bottom, SYS.tabbarHeight)
+        }
+        .navigationBarTitle(Text("\(selectedEvent != nil ? selectedEvent?.eventName ?? "" : "Events")"))
+        .onAppear {
+            selectedEvent = getFilteredEvents(shouldBeCurrent: true).first
         }
     }
 
@@ -91,6 +95,10 @@ struct NSEventsList: View {
             viewContext.delete(event)
             if viewContext.hasChanges {
                 try? viewContext.save()
+            }
+
+            if selectedEvent == event {
+                selectedEvent = nil
             }
         }
     }

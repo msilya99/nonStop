@@ -23,18 +23,20 @@ struct NSMainTabsView: View {
     // MARK: - views
 
     var body: some View {
-        ZStack(alignment: .bottom) {
-            TabView(selection: $selectedItem) {
-                NSEventsList()
-                    .tag(1)
-                NSTimerView()
-                    .tag(2)
-            }
+        NavigationView {
+            ZStack(alignment: .bottom) {
+                TabView(selection: $selectedItem) {
+                    NSEventsList()
+                        .tag(1)
+                    Text("Settings?")
+                        .tag(2)
+                }
 
-            NSTabBarView(selectedItem: $selectedItem,
-                         addItemAction: { shouldShowSheet = true })
+                NSTabBarView(selectedItem: $selectedItem,
+                             addItemAction: { shouldShowSheet = true })
+            }
+            .edgesIgnoringSafeArea(.bottom)
         }
-        .edgesIgnoringSafeArea(.bottom)
         .sheet(isPresented: $shouldShowSheet) { NSAddEditEventSheet() }
     }
 }
