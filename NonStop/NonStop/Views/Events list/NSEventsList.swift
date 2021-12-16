@@ -18,7 +18,18 @@ struct NSEventsList: View {
     private var events: FetchedResults<Event>
 
     @State private var selectedEventForEditing: Event?
-    @State private var selectedEvent: Event?
+
+    @State private var selectedEvent: Event? {
+        didSet {
+            if selectedEvent != nil {
+                viewUpdater.stopTimer()
+            } else {
+                viewUpdater.startTimer()
+            }
+        }
+    }
+    
+    @StateObject private var viewUpdater = NSUpdaterViewModel()
 
     // MARK: - body views
 
@@ -58,14 +69,15 @@ struct NSEventsList: View {
                 }
                 .onTapGesture {
                     guard currentEventsContainEvent else { return }
-                    selectedEvent = event
+                    withAnimation(.linear) {
+                        selectedEvent = selectedEvent == event ? nil : event
+                    }
                 }
 
-            if currentEventsContainEvent, selectedEvent == event {
                 NSChipEventView(title: "Current", eventColor: eventModel.eventColor)
                     .offset(y: -10)
                     .offset(x: 20)
-            }
+                    .hidden(!(currentEventsContainEvent && selectedEvent == event))
         }
     }
 
@@ -113,8 +125,7 @@ struct NSEventsList: View {
             if event.isSpecialDateEvent {
                 isCurrentEvent = fromDate...toDate ~= Date.getCurrentDate()
             } else if fromDate > toDate || !event.isSpecialDateEvent {
-                isCurrentEvent = Date.getCurrentDate()
-                    .isInTimeInterval(fromDate: fromDate, toDate: toDate)
+                isCurrentEvent = Date().isInTimeInterval(fromDate: fromDate, toDate: toDate)
             }
 
             return shouldBeCurrent ? isCurrentEvent : !isCurrentEvent

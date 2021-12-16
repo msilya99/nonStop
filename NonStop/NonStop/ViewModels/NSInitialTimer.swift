@@ -50,7 +50,7 @@ class NSInitialTimer: ObservableObject {
               let endDate = self.endDate else { return }
         isTimerStarted = true
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            let now = Date()
+            let now = Date.getCurrentDate(nil)
             guard now > startDate else { return }
             self.timeRemain = endDate - now
             if self.timeRemain < 0 {
@@ -64,6 +64,9 @@ class NSInitialTimer: ObservableObject {
         isTimerStarted = false
         timeRemain = 0
         timeLeftPersentage = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+            self?.selectedEvent = nil
+        }
     }
 
     // MARK: - getters
@@ -118,14 +121,11 @@ class NSInitialTimer: ObservableObject {
         if event.isSpecialDateEvent {
             self.startDate = event.fromDate
             self.endDate = event.toDate
-        } else if var fromDate = event.fromDate,
-                  var toDate = event.toDate {
+        } else if var fromDate = event.fromDate?.getTimeZoneDate(),
+                  var toDate = event.toDate?.getTimeZoneDate(){
             fromDate.onlyTimeDate()
             toDate.onlyTimeDate()
 
-            if fromDate > toDate {
-                toDate.day += 1
-            }
             self.startDate = fromDate
             self.endDate = toDate
         }

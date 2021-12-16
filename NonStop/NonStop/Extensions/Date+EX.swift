@@ -253,10 +253,21 @@ extension Date {
                              timeZoneAbbreviation: DateTimeFormat.defaultTimeZone)
     }
 
-    static func getCurrentDate() -> Date {
-        guard let timezoneOffset = TimeZone(abbreviation: DateTimeFormat.defaultTimeZone)?.secondsFromGMT() else { return Date() }
-        let epochDate = Date().timeIntervalSince1970
-        let timezoneEpochOffset = (epochDate + Double(timezoneOffset))
+    static func getCurrentDate(_ timeZone: String? = nil) -> Date {
+        return Date().getTimeZoneDate(timeZone)
+    }
+
+    func getTimeZoneDate(_ timeZone: String? = nil) -> Date {
+        var timeZoneOffset: Int
+        if let timeZone = timeZone,
+           let offset = TimeZone(abbreviation: timeZone)?.secondsFromGMT() {
+            timeZoneOffset = offset
+        } else {
+            timeZoneOffset = TimeZone.current.secondsFromGMT()
+        }
+
+        let epochDate = self.timeIntervalSince1970
+        let timezoneEpochOffset = (epochDate + Double(timeZoneOffset))
 
         return Date(timeIntervalSince1970: timezoneEpochOffset)
     }
@@ -273,8 +284,13 @@ extension Date {
         endDate.month = self.month
         endDate.year = self.year
 
+        /// FOR case when 23:00
         if startDate > endDate {
-            endDate.day += 1
+            var newStartDay = startDate.getTimeZoneDate()
+            newStartDay.day = self.day
+            var newEndDay = endDate.getTimeZoneDate()
+            newEndDay.day = self.day
+            return newStartDay...newEndDay ~= self
         }
 
         return startDate...endDate ~= self

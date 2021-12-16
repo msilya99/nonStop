@@ -20,7 +20,7 @@ class NSAddEventViewModel: ObservableObject {
         }
     }
 
-    @Published var fromDate: Date = Date.getCurrentDate() {
+    @Published var fromDate: Date = Date.getCurrentDate(DateTimeFormat.defaultTimeZone) {
         didSet {
             guard !isEverydayEvent,
                   fromDate.adding(.minute, value: 5) >= toDate else { return }
@@ -28,7 +28,7 @@ class NSAddEventViewModel: ObservableObject {
         }
     }
     
-    @Published var toDate: Date = Date.getCurrentDate().adding(.minute, value: 5)
+    @Published var toDate: Date = Date.getCurrentDate(DateTimeFormat.defaultTimeZone).adding(.minute, value: 5)
     @Published var isNeedDescription = false
     @Published var eventDescription: String = ""
     @Published var eventColor = NSThemeColors.sh.getColorByType(.base)
@@ -51,7 +51,7 @@ class NSAddEventViewModel: ObservableObject {
             return nil
         }
 
-        guard isRangeGreaterThenTo(minutes: 4) else {
+        guard isRangeGreaterThenTo(minutes: 0) else {
             showDateAlert = true
             return nil
         }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9907D2ED276BD56A00BB1881 /* NSUpdaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9907D2EC276BD56A00BB1881 /* NSUpdaterViewModel.swift */; };
 		990DB561273337D800B62902 /* NSMainTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB560273337D800B62902 /* NSMainTabsView.swift */; };
 		990DB567273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB566273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift */; };
 		990DB56C2733539F00B62902 /* NSGaugeProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9907D2EC276BD56A00BB1881 /* NSUpdaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUpdaterViewModel.swift; sourceTree = "<group>"; };
 		990DB560273337D800B62902 /* NSMainTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMainTabsView.swift; sourceTree = "<group>"; };
 		990DB566273339EF00B62902 /* NSWatterCircleAnimationProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWatterCircleAnimationProgressView.swift; sourceTree = "<group>"; };
 		990DB56B2733539F00B62902 /* NSGaugeProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSGaugeProgressStyle.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				99BAC1BA2731E8B400536F7B /* Persistence.swift */,
 				99BAC1C72731EBD900536F7B /* NSInitialTimer.swift */,
 				996E41502744717300BC3902 /* NSAddEventViewModel.swift */,
+				9907D2EC276BD56A00BB1881 /* NSUpdaterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				99745CAF2736E4FD00170F1D /* NSProgressViewStyleEx.swift in Sources */,
 				99745CAD2736CB6F00170F1D /* NSWaveShape.swift in Sources */,
 				998439CF2741BCBE00772A90 /* NSViewThemeColorModifier.swift in Sources */,
+				9907D2ED276BD56A00BB1881 /* NSUpdaterViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
