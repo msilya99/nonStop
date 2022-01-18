@@ -46,6 +46,7 @@ struct NSEventsList: View {
         }
         .navigationBarTitle(Text("\(selectedEvent != nil ? selectedEvent?.eventName ?? "" : "Events")"))
         .onAppear {
+            guard selectedEvent == nil else { return }
             selectedEvent = getFilteredEvents(shouldBeCurrent: true).first
         }
     }
@@ -125,7 +126,10 @@ struct NSEventsList: View {
             if event.isSpecialDateEvent {
                 isCurrentEvent = fromDate...toDate ~= Date.getCurrentDate()
             } else if fromDate > toDate || !event.isSpecialDateEvent {
-                isCurrentEvent = Date().isInTimeInterval(fromDate: fromDate, toDate: toDate)
+                isCurrentEvent = Date
+                    .getCurrentDate()
+                    .isInTimeInterval(fromDate: fromDate.getTimeZoneDate(),
+                                      toDate: toDate.getTimeZoneDate())
             }
 
             return shouldBeCurrent ? isCurrentEvent : !isCurrentEvent

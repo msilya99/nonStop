@@ -289,7 +289,7 @@ extension Date {
             var newStartDay = startDate.getTimeZoneDate()
             newStartDay.day = self.day
             var newEndDay = endDate.getTimeZoneDate()
-            newEndDay.day = self.day
+            newEndDay.day = self.day + 1
             return newStartDay...newEndDay ~= self
         }
 

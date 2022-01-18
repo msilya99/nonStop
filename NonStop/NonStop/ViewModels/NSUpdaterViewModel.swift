@@ -12,7 +12,7 @@ class NSUpdaterViewModel: ObservableObject {
     // MARK: - variables
 
     @Published var now: Date = Date()
-    private var timer: Timer?
+    private weak var timer: Timer?
     var timeInterval: TimeInterval = 5
 
     // MARK: - initialization
@@ -33,10 +33,11 @@ class NSUpdaterViewModel: ObservableObject {
     }
 
     func startTimer() {
+        timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: timeInterval,
                                      repeats: true,
-                                     block: { _ in
-            self.refresh()
+                                     block: { [weak self]_ in
+            self?.refresh()
         })
     }
 
